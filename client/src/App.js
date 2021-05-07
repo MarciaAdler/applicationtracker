@@ -6,6 +6,8 @@ import { StoreProvider } from "../src/utils/GlobalState";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HeaderNav from "./components/HeaderNav";
 import SideNav from "./components/SideNav";
+import Add from "./Pages/Add";
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
@@ -15,9 +17,11 @@ function App() {
           <SideNav />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/add" component={Add} />
           </Switch>
         </Router>
       </StoreProvider>
+      <Footer />
     </div>
   );
 }
