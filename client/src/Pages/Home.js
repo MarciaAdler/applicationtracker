@@ -44,12 +44,14 @@ export default function Home() {
             </Col>
           </Row>
           <Row>
-            <Col xs={12} md={8}>
-              <strong>Notes:</strong>&nbsp;these are notes from this job
-            </Col>
             <Col xs={12} md={4}>
               <strong>JD:</strong>&nbsp;
-              <a href="#/">link to document</a>
+              <a href="#/" target="_blank" rel="noreferrer">
+                document name
+              </a>
+            </Col>
+            <Col xs={12} md={8}>
+              <strong>Notes:</strong>&nbsp;these are notes from this job
             </Col>
           </Row>
           <Row>

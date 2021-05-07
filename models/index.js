@@ -6,6 +6,12 @@ var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
+var sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config
+);
 var db = {};
 
 if (config.use_env_variable) {
@@ -27,7 +33,10 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(function (file) {
-    var model = sequelize["import"](path.join(__dirname, file));
+    var model = require(path.join(__dirname, file))(
+      sequelize,
+      Sequelize.DataTypes
+    );
     db[model.name] = model;
   });
 
