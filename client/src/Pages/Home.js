@@ -42,86 +42,25 @@ export default function Home() {
               </strong>{" "}
               Tech Ladies
             </Col>
-            <Row>
-              <Col xs={12} md={12}>
-                <strong>Notes:</strong>&nbsp;these are notes from this job
-              </Col>
-            </Row>
           </Row>
-        </ListGroup.Item>
-        <ListGroup.Item>
           <Row>
-            <Col xs={6} md={1}>
-              <strong>Id:</strong>
+            <Col xs={12} md={8}>
+              <strong>Notes:</strong>&nbsp;these are notes from this job
             </Col>
-            <Col xs={6} md={2}>
-              <strong>Role:</strong>
+            <Col xs={12} md={4}>
+              <strong>JD:</strong>&nbsp;
+              <a href="#/">link to document</a>
             </Col>
-            <Col xs={12} md={3}>
-              <strong>Company Name:</strong>
-            </Col>
-
-            <Col xs={6} md={2}>
-              <strong>Link:</strong>
-            </Col>
-            <Col xs={6} md={2}>
-              <strong>Source:</strong>
-            </Col>
-            <Row>
-              <Col xs={12} md={12}>
-                <strong>Notes:</strong>
-              </Col>
-            </Row>
           </Row>
-        </ListGroup.Item>
-        <ListGroup.Item>
           <Row>
-            <Col xs={6} md={1}>
-              <strong>Id:</strong>
+            <Col xs={6} md={4}>
+              <strong>Status:</strong>&nbsp;
             </Col>
-            <Col xs={6} md={2}>
-              <strong>Role:</strong>
+            <Col xs={6} md={4}>
+              <a href="#/edit">
+                <strong>Edit</strong>
+              </a>
             </Col>
-            <Col xs={12} md={3}>
-              <strong>Company Name:</strong>
-            </Col>
-
-            <Col xs={6} md={2}>
-              <strong>Link:</strong>
-            </Col>
-            <Col xs={6} md={2}>
-              <strong>Source:</strong>
-            </Col>
-            <Row>
-              <Col xs={12} md={12}>
-                <strong>Notes:</strong>
-              </Col>
-            </Row>
-          </Row>
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <Row>
-            <Col xs={6} md={1}>
-              <strong>Id:</strong>
-            </Col>
-            <Col xs={6} md={2}>
-              <strong>Role:</strong>
-            </Col>
-            <Col xs={12} md={3}>
-              <strong>Company Name:</strong>
-            </Col>
-
-            <Col xs={6} md={2}>
-              <strong>Link:</strong>
-            </Col>
-            <Col xs={6} md={2}>
-              <strong>Source:</strong>
-            </Col>
-            <Row>
-              <Col xs={12} md={12}>
-                <strong>Notes:</strong>
-              </Col>
-            </Row>
           </Row>
         </ListGroup.Item>
       </ListGroup>
