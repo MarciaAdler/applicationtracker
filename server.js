@@ -12,11 +12,11 @@ const fileUpload = require("express-fileupload");
 const passport = require("passport");
 
 const users = require("./routes/users");
-
+const uploads = require("./uploads");
 var session = require("express-session");
 var compression = require("compression");
 
-app.use(cors());
+// app.use(cors());
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -43,7 +43,7 @@ app.use(compression());
 // app.use(transit);
 
 app.use(users);
-
+app.use(uploads);
 // app.use(uploads);
 // create image file for profiles
 

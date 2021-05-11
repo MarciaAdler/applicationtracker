@@ -8,12 +8,17 @@ export default function Home() {
       <ListGroup id="home-table">
         <ListGroup.Item>
           <Row>
-            <Col xs={6} md={1}>
+            <Col xs={1} md={1}>
               <strong>
                 Id:
                 <br />
               </strong>
-              1
+              345
+            </Col>
+            <Col xs={5} md={1} className="text-center">
+              <strong>Date Applied:</strong>
+              <br />
+              5/2/21
             </Col>
             <Col xs={6} md={2}>
               <strong>
