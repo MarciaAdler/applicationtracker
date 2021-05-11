@@ -43,7 +43,16 @@ const reducer = (state, action) => {
 };
 
 const StoreProvider = ({ value = [], ...props }) => {
-  const [state, dispatch] = useReducer(reducer, {});
+  const [state, dispatch] = useReducer(reducer, {
+    currentUser: {
+      id: 0,
+      username: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+    },
+    loggedIn: false,
+  });
   return <Provider value={[state, dispatch]} {...props} />;
 };
 const useStoreContext = () => {

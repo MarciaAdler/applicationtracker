@@ -1,9 +1,10 @@
 import React from "react";
-import UploadDescription from "../components/UploadDescription";
+
+import AddNewApp from "../components/AddNewApp";
 export default function Add() {
   return (
     <div>
-      <UploadDescription />
+      <AddNewApp />
     </div>
   );
 }

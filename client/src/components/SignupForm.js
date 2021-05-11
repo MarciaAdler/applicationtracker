@@ -14,7 +14,6 @@ export default function SignupForm() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmRef = useRef();
-  const roleRef = useRef();
 
   const renderRedirect = () => {
     if (sendLogin && state.currentUser.id === 0) {
@@ -31,9 +30,7 @@ export default function SignupForm() {
         lastName: lastRef.current.value,
         email: emailRef.current.value,
         username: nameRef.current.value,
-
         password: passwordRef.current.value,
-        // role: roleRef.current.value,
       })
         .then((res) => {
           setSendLogin(true);
