@@ -14,13 +14,13 @@ export default function SignupForm() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmRef = useRef();
-  //   const roleRef = useRef();
+  const roleRef = useRef();
 
-  //   const renderRedirect = () => {
-  //     if (sendLogin && state.currentUser.id === 0) {
-  //       return <Redirect to="/" />;
-  //     }
-  //   };
+  const renderRedirect = () => {
+    if (sendLogin && state.currentUser.id === 0) {
+      return <Redirect to="/" />;
+    }
+  };
   function signUp(event) {
     event.preventDefault();
     if (passwordRef.current.value !== confirmRef.current.value) {
@@ -44,7 +44,7 @@ export default function SignupForm() {
     }
   }
   return (
-    <Container id="signup-container">
+    <Container className="signup-container">
       <Form className="signup-form" id="myForm">
         <Form.Row className="mb-3 justify-content-center">
           <Col className="col-8 col-md-4">
@@ -149,7 +149,7 @@ export default function SignupForm() {
               </a>{" "}
               to login
             </span>
-            {/* {renderRedirect()} */}
+            {renderRedirect()}
           </Col>
         </Form.Row>
       </Form>

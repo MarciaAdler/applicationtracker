@@ -57,8 +57,8 @@ body {
 
   float: right;
 }
-#signup-container {
-  width: 65%;
+.signup-container {
+  width: 65% !important;
   float: right;
   margin-top: 20px;
 }
@@ -106,7 +106,7 @@ body {
 
     width: auto;
   }
-  #signup-container {
+  .signup-container {
     max-width: 100%;
     float: none;
   }

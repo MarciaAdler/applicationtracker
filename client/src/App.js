@@ -9,6 +9,7 @@ import SideNav from "./components/SideNav";
 import Add from "./Pages/Add";
 import Footer from "./components/Footer";
 import Signup from "./Pages/Signup";
+import Login from "./Pages/Login";
 function App() {
   return (
     <div className="App">
@@ -17,7 +18,8 @@ function App() {
           <HeaderNav />
           <SideNav />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Login} />
+            <Route path="/home" component={Home} />
             <Route path="/signup" component={Signup} />
             <Route path="/add" component={Add} />
           </Switch>

@@ -15,7 +15,7 @@ export default function Home() {
               </strong>
               345
             </Col>
-            <Col xs={5} md={1} className="text-center">
+            <Col xs={5} md={2} className="text-center">
               <strong>Date Applied:</strong>
               <br />
               5/2/21
