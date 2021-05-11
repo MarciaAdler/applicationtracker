@@ -57,6 +57,11 @@ body {
 
   float: right;
 }
+#signup-container {
+  width: 65%;
+  float: right;
+  margin-top: 20px;
+}
 .footer-container {
   background-color: #bb8a89;
   position: absolute;
@@ -70,6 +75,12 @@ body {
   padding-top: 20px;
   text-align: center;
 }
+/* @media only screen and (min-width: 768) {
+  #signup-container {
+    max-width: 65%;
+    float: none;
+  }
+} */
 @media only screen and (max-width: 576px) {
   .side-nav-container {
     float: none;
@@ -94,5 +105,9 @@ body {
     display: inline-block;
 
     width: auto;
+  }
+  #signup-container {
+    max-width: 100%;
+    float: none;
   }
 }

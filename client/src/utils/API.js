@@ -6,4 +6,8 @@ export default {
     console.log(file);
     return axios.post("/api/uploaddescription", file);
   },
+  createUser: function (req) {
+    console.log(req);
+    return axios.post("/api/signup", req);
+  },
 };

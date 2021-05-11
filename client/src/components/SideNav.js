@@ -13,6 +13,9 @@ export default function SideNav() {
         <Nav.Link className="side-nav-link" href="#/Analytics">
           Analytics
         </Nav.Link>
+        <Nav.Link className="side-nav-link" href="/signup">
+          Signup
+        </Nav.Link>
       </Nav>
     </div>
   );
