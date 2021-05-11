@@ -10,7 +10,7 @@ export default function LoginForm() {
   const nameRef = useRef();
   const passwordRef = useRef();
   const renderRedirect = () => {
-    if (state.loggedIn) {
+    if (state.loggedIn && state.currentUser.id !== 0) {
       return <Redirect to="/home" />;
     }
   };

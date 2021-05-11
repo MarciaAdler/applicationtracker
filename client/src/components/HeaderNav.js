@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Row } from "react-bootstrap";
-import { SET_CURRENT_USER, LOGGEDIN, CLEAR_ALL } from "../utils/actions";
+import { SET_CURRENT_USER, LOGGEDIN } from "../utils/actions";
 import { useStoreContext } from "../utils/GlobalState";
 export default function HeaderNav() {
   const [state, dispatch] = useStoreContext();
