@@ -11,4 +11,6 @@ router.post(
   usersController.findOne
 );
 
+router.route("/api/addapp").post(usersController.addApp);
+
 module.exports = router;

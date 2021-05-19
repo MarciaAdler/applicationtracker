@@ -66,8 +66,8 @@ class UploadDescription extends Component {
   render() {
     return (
       <div>
-        <h1>GeeksforGeeks</h1>
-        <h3>File Upload using React!</h3>
+        <h2>Upload JD</h2>
+
         <div>
           <input
             type="file"

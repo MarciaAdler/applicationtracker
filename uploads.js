@@ -12,7 +12,7 @@ router.route("/api/uploaddescription").post((req, res) => {
   const myFile = req.files.myFile;
   //  mv() method places the file inside public directory
   myFile.mv(
-    `${__dirname}/client/public/jobdescriptions/${myFile.name}`,
+    `${__dirname}/client/public/jobdescriptions/${req.body.userId}-${myFile.name}`,
     function (err) {
       if (err) {
         console.log(err);

@@ -13,4 +13,8 @@ export default {
   getUser: function (req) {
     return axios.post("/api/login", req);
   },
+  addApp: function (app) {
+    console.log(app);
+    return axios.post("/api/addapp", app);
+  },
 };
