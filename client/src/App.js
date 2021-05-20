@@ -10,6 +10,7 @@ import Add from "./Pages/Add";
 import Footer from "./components/Footer";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
+import Resources from "./Pages/Resources";
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
             <Route path="/home" component={Home} />
             <Route path="/signup" component={Signup} />
             <Route path="/add" component={Add} />
+            <Route path="/resources" component={Resources} />
           </Switch>
         </Router>
       </StoreProvider>

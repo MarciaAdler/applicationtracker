@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <Container className="footer-container">
       <Row>
-        <h6 id="footer-title">Footer</h6>
+        <h6 id="footer-title">Every rejection is a redirection</h6>
       </Row>
     </Container>
   );

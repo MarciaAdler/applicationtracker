@@ -80,6 +80,14 @@ body {
 .application-text {
   font-size: 13px;
 }
+.resources-container {
+  width: 70%;
+  float: right;
+  margin-right: 20px;
+}
+.resources-listgroup {
+  width: 50%;
+}
 /* @media only screen and (min-width: 768) {
   #signup-container {
     max-width: 65%;
@@ -114,5 +122,13 @@ body {
   .signup-container {
     max-width: 100%;
     float: none;
+  }
+  .resources-container {
+    width: 80%;
+    float: none;
+    margin: auto;
+  }
+  .resources-listgroup {
+    width: 100%;
   }
 }

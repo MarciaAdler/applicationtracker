@@ -35,6 +35,9 @@ export default function SideNav() {
           <Nav.Link className="side-nav-link" href="#/Analytics">
             Analytics
           </Nav.Link>
+          <Nav.Link className="side-nav-link" href="/resources">
+            Resources
+          </Nav.Link>
           <Nav.Link className="side-nav-link" href="/" onClick={logOut}>
             Logout
           </Nav.Link>
