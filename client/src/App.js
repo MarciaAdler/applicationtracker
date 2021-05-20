@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Resources from "./Pages/Resources";
+import SideNavQuotes from "./components/SideNavQuotes";
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
           </Switch>
         </Router>
       </StoreProvider>
+      <SideNavQuotes />
       <Footer />
     </div>
   );

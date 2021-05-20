@@ -35,6 +35,10 @@ body {
   text-align: center;
   margin-top: 20px;
 }
+.side-nav-quotes-text {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 .header-nav {
   background-color: #bb8a89;
@@ -93,6 +97,7 @@ body {
 .resources-listgroup {
   width: 50%;
 }
+
 /* @media only screen and (min-width: 768) {
   #signup-container {
     max-width: 65%;
@@ -135,5 +140,9 @@ body {
   }
   .resources-listgroup {
     width: 100%;
+  }
+  .side-nav-quotes {
+    bottom: 0;
+    margin-top: 20px;
   }
 }

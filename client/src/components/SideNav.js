@@ -55,11 +55,6 @@ export default function SideNav() {
           </Nav>
         )}
       </div>
-      <div className="side-nav-quotes">
-        <h6>Quotes to Remember</h6>
-        <p>"It only takes one yes"</p>
-        <p>"Every rejection is a redirection"</p>
-      </div>
     </div>
   );
 }
