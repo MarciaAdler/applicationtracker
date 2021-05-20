@@ -73,6 +73,14 @@ body {
   margin-top: 20px;
   height: 100%;
 }
+.application-container {
+  width: 65% !important;
+  float: right;
+  margin-top: 20px;
+  margin-right: 50px;
+
+  height: 100%;
+}
 .footer-container {
   background-color: #bb8a89;
   position: absolute;
@@ -132,6 +140,13 @@ body {
   .signup-container {
     max-width: 100%;
     float: none;
+  }
+  .application-container {
+    max-width: 100%;
+    float: none;
+    margin: auto;
+    margin-top: 20px;
+    width: 90% !important;
   }
   .resources-container {
     width: 80%;

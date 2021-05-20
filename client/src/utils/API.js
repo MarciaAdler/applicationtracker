@@ -20,4 +20,7 @@ export default {
   getMyApps: function (user) {
     return axios.get("/api/getmyapps/" + user);
   },
+  selectApp: function (app) {
+    return axios.get("/api/selectapp/" + app);
+  },
 };

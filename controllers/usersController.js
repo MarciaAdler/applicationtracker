@@ -53,12 +53,22 @@ module.exports = {
       });
   },
   getMyApps: function (req, res) {
-    console.log(req.params);
     db.Application.findAll({
       where: {
         UserId: req.params.id,
       },
       order: [["createdAt", "DESC"]],
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
+  selectApp: function (req, res) {
+    db.Application.findOne({
+      where: {
+        id: req.params.id,
+      },
     })
       .then((dbModel) => res.json(dbModel))
       .catch(function (err) {

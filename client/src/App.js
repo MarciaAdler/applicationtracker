@@ -12,6 +12,7 @@ import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Resources from "./Pages/Resources";
 import SideNavQuotes from "./components/SideNavQuotes";
+import Edit from "./Pages/Edit";
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
             <Route path="/home" component={Home} />
             <Route path="/signup" component={Signup} />
             <Route path="/add" component={Add} />
+            <Route path="/edit" component={Edit} />
             <Route path="/resources" component={Resources} />
           </Switch>
         </Router>

@@ -87,7 +87,7 @@ export default function AddNewApp() {
       });
   }
   return (
-    <Container className="signup-container">
+    <Container className="application-container">
       <Form>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridDate">

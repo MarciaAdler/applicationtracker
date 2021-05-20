@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ListGroup, Col, Row } from "react-bootstrap";
-import { SET_APPS } from "../utils/actions";
+import { SELECT_APP, SET_APPS } from "../utils/actions";
 import { useStoreContext } from "../utils/GlobalState";
 import API from "../utils/API";
-
+import { Redirect } from "react-router-dom";
 export default function Home() {
   const [state, dispatch] = useStoreContext();
-
+  const [redirect, setRedirect] = useState(false);
   useEffect(() => {
     if (state.currentUser.id === 0 && localStorage.getItem("currentUser")) {
       const currentUserLs = JSON.parse(localStorage.getItem("currentUser"));
@@ -26,6 +26,39 @@ export default function Home() {
     }
   }, [dispatch, state.currentUser.id]);
 
+  function selectApp(app) {
+    API.selectApp(app).then((res) => {
+      dispatch({
+        type: SELECT_APP,
+        selectedApp: {
+          id: res.data.id,
+          companyName: res.data.companyName,
+          role: res.data.role,
+          applicationLink: res.data.applicationLink,
+          source: res.data.source,
+          jobDescription: res.data.jobDescription,
+          notes: res.data.notes,
+          dateApplied: res.data.dateApplied,
+          status: res.data.status,
+          userId: res.data.UserId,
+        },
+      });
+      setRedirect(true);
+    });
+  }
+  const renderRedirect = () => {
+    if (state.selectedApp && redirect) {
+      return (
+        <Redirect
+          push
+          to={{
+            pathname: "/edit/",
+            search: `?${state.selectedApp.id}`,
+          }}
+        />
+      );
+    }
+  };
   return (
     <div className="home-container">
       <ListGroup id="home-table">
@@ -107,9 +140,13 @@ export default function Home() {
                       <span className="application-text">{app.status}</span>
                     </Col>
                     <Col xs={6} md={4}>
-                      <a href="#/edit">
+                      <button
+                        onClick={() => {
+                          selectApp(app.id);
+                        }}
+                      >
                         <strong>Edit</strong>
-                      </a>
+                      </button>
                     </Col>
                   </Row>
                 </ListGroup.Item>
@@ -117,6 +154,7 @@ export default function Home() {
             })
           : "No Apps"}
       </ListGroup>
+      {renderRedirect()}
     </div>
   );
 }

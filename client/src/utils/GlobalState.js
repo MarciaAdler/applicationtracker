@@ -1,6 +1,12 @@
 import React, { createContext, useReducer, useContext } from "react";
 
-import { CLEAR_ALL, SET_CURRENT_USER, LOGGEDIN, SET_APPS } from "./actions";
+import {
+  CLEAR_ALL,
+  SET_CURRENT_USER,
+  LOGGEDIN,
+  SET_APPS,
+  SELECT_APP,
+} from "./actions";
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
@@ -30,7 +36,22 @@ const reducer = (state, action) => {
         ...state,
         apps: action.apps,
       };
-
+    case SELECT_APP:
+      return {
+        ...state,
+        selectedApp: {
+          id: action.selectedApp.id,
+          companyName: action.selectedApp.companyName,
+          role: action.selectedApp.role,
+          applicationLink: action.selectedApp.applicationLink,
+          source: action.selectedApp.source,
+          jobDescription: action.selectedApp.jobDescription,
+          notes: action.selectedApp.notes,
+          dateApplied: action.selectedApp.dateApplied,
+          userId: action.selectedApp.userId,
+          status: action.selectedApp.status,
+        },
+      };
     case CLEAR_ALL:
       return {
         currentUser: {
@@ -41,6 +62,19 @@ const reducer = (state, action) => {
           email: "",
         },
         loggedIn: false,
+        apps: [],
+        selectedApp: {
+          id: 0,
+          companyName: "",
+          role: "",
+          applicationLink: "",
+          source: "",
+          jobDescription: "",
+          notes: "",
+          dateApplied: "",
+          userId: 0,
+          status: "",
+        },
       };
     default:
       return state;
