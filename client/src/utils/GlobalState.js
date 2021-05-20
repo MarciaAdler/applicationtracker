@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 
-import { CLEAR_ALL, SET_CURRENT_USER, LOGGEDIN } from "./actions";
+import { CLEAR_ALL, SET_CURRENT_USER, LOGGEDIN, SET_APPS } from "./actions";
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
@@ -24,6 +24,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         loggedIn: true,
+      };
+    case SET_APPS:
+      return {
+        ...state,
+        apps: action.apps,
       };
 
     case CLEAR_ALL:

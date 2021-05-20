@@ -21,7 +21,6 @@ export default function LoginForm() {
       password: passwordRef.current.value,
     })
       .then((results) => {
-        console.log(results);
         dispatch({
           type: SET_CURRENT_USER,
           currentUser: {

@@ -17,4 +17,8 @@ export default {
     console.log(app);
     return axios.post("/api/addapp", app);
   },
+  getMyApps: function (user) {
+    console.log(user);
+    return axios.get("/api/getmyapps/" + user);
+  },
 };

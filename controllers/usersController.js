@@ -2,7 +2,6 @@ const db = require("../models");
 var fs = require("fs");
 const { Op } = require("sequelize");
 const { Sequelize } = require("sequelize");
-const { runInNewContext } = require("vm");
 
 module.exports = {
   createUser: function (req, res) {
@@ -36,7 +35,6 @@ module.exports = {
       });
   },
   addApp: function (req, res) {
-    console.log(req);
     db.Application.create({
       companyName: req.body.companyName,
       role: req.body.role,
@@ -45,11 +43,24 @@ module.exports = {
       jobDescription: req.body.jobDescription,
       notes: req.body.notes,
       dateApplied: req.body.dateApplied,
-      userId: req.body.userId,
+      UserId: req.body.userId,
     })
       .then(function (user) {
         res.json(user);
       })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
+  getMyApps: function (req, res) {
+    console.log(req.params);
+    db.Application.findAll({
+      where: {
+        UserId: req.params.id,
+      },
+      order: [["createdAt", "DESC"]],
+    })
+      .then((dbModel) => res.json(dbModel))
       .catch(function (err) {
         res.status(401).json(err);
       });

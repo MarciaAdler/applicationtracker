@@ -15,9 +15,12 @@ export default function AddNewApp() {
   const sourceRef = useRef();
 
   const onFileChange = (event) => {
+    const nameOfFile = event.target.files[0].name.replace(/\s+/g, "");
     // Update the state
     setSelectedFile(event.target.files[0]);
-    setFileName(state.currentUser.id + "-" + event.target.files[0].name);
+    setFileName(
+      state.currentUser.id + "-" + dateRef.current.value + "-" + nameOfFile
+    );
   };
   // On file upload (click the upload button)
   const onFileUpload = () => {
@@ -27,6 +30,7 @@ export default function AddNewApp() {
     // Update the formData object
     formData.append("myFile", selectedFile, selectedFile.name);
     formData.append("userId", state.currentUser.id);
+    formData.append("date", dateRef.current.value);
 
     // Details of the uploaded file
     console.log(selectedFile);

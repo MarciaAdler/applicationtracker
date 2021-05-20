@@ -13,4 +13,6 @@ router.post(
 
 router.route("/api/addapp").post(usersController.addApp);
 
+router.route("/api/getmyapps/:id").get(usersController.getMyApps);
+
 module.exports = router;
