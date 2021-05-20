@@ -4,6 +4,7 @@ import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 
 export default function AddNewApp() {
+  // eslint-disable-next-line no-unused-vars
   const [state, dispatch] = useStoreContext();
   const [selectedFile, setSelectedFile] = useState(null);
   const [filename, setFileName] = useState(null);

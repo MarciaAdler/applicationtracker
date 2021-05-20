@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { CLEAR_ALL } from "../utils/actions";
 export default function SideNav() {
   const [state, dispatch] = useStoreContext();

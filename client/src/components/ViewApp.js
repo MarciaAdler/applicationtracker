@@ -14,17 +14,18 @@ export default function Home() {
     } else {
       getMyApps(state.currentUser.id);
     }
-  }, []);
-  function getMyApps(user) {
-    API.getMyApps(user)
-      .then((res) => {
-        dispatch({
-          type: SET_APPS,
-          apps: res.data,
-        });
-      })
-      .catch((err) => console.log(err));
-  }
+    function getMyApps(user) {
+      API.getMyApps(user)
+        .then((res) => {
+          dispatch({
+            type: SET_APPS,
+            apps: res.data,
+          });
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [dispatch, state.currentUser.id]);
+
   return (
     <div className="home-container">
       <ListGroup id="home-table">

@@ -18,7 +18,7 @@ export default function HeaderNav() {
     dispatch({
       type: LOGGEDIN,
     });
-  }, []);
+  }, [dispatch, state.currentUser.id]);
   return (
     <Row className="header-nav">
       <h1 id="header-title">Application Tracker</h1>
