@@ -20,15 +20,20 @@ body {
   color: #3c0000 !important;
 }
 .side-nav-container {
-  background-color: #97abb1;
-
   width: 25% !important;
   margin-left: 0;
   float: left;
 }
+.side-nav-color {
+  background-color: #97abb1;
+}
 .side-nav-nav {
   flex-direction: column;
   text-align: center;
+}
+.side-nav-quotes {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .header-nav {

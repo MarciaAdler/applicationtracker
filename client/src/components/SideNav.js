@@ -24,35 +24,42 @@ export default function SideNav() {
 
   return (
     <div className="side-nav-container">
-      {state.loggedIn && state.currentUser.id !== 0 ? (
-        <Nav className="side-nav-nav">
-          <Nav.Link className="side-nav-link" href="/">
-            Home
-          </Nav.Link>
-          <Nav.Link className="side-nav-link" href="/add">
-            Add Job
-          </Nav.Link>
-          <Nav.Link className="side-nav-link" href="#/Analytics">
-            Analytics
-          </Nav.Link>
-          <Nav.Link className="side-nav-link" href="/resources">
-            Resources
-          </Nav.Link>
-          <Nav.Link className="side-nav-link" href="/" onClick={logOut}>
-            Logout
-          </Nav.Link>
-          {renderRedirect()}
-        </Nav>
-      ) : (
-        <Nav className="side-nav-nav">
-          <Nav.Link className="side-nav-link" href="/">
-            Login
-          </Nav.Link>
-          <Nav.Link className="side-nav-link" href="/signup">
-            Signup
-          </Nav.Link>
-        </Nav>
-      )}
+      <div className="side-nav-color">
+        {state.loggedIn && state.currentUser.id !== 0 ? (
+          <Nav className="side-nav-nav">
+            <Nav.Link className="side-nav-link" href="/">
+              Home
+            </Nav.Link>
+            <Nav.Link className="side-nav-link" href="/add">
+              Add Job
+            </Nav.Link>
+            <Nav.Link className="side-nav-link" href="#/Analytics">
+              Analytics
+            </Nav.Link>
+            <Nav.Link className="side-nav-link" href="/resources">
+              Resources
+            </Nav.Link>
+            <Nav.Link className="side-nav-link" href="/" onClick={logOut}>
+              Logout
+            </Nav.Link>
+            {renderRedirect()}
+          </Nav>
+        ) : (
+          <Nav className="side-nav-nav">
+            <Nav.Link className="side-nav-link" href="/">
+              Login
+            </Nav.Link>
+            <Nav.Link className="side-nav-link" href="/signup">
+              Signup
+            </Nav.Link>
+          </Nav>
+        )}
+      </div>
+      <div className="side-nav-quotes">
+        <h6>Quotes to Remember</h6>
+        <p>"It only takes one yes"</p>
+        <p>"Every rejection is a redirection"</p>
+      </div>
     </div>
   );
 }
