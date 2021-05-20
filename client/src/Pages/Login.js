@@ -25,16 +25,10 @@ export default function Signin() {
             <p className="ml-2">
               <strong>Usernames:</strong>
               <br />
-              adminHenry
-              <br />
-              HenryUser
-              <br />
-              HenryFrontDesk
-              <br />
-              MaintenanceHenry
+              test
             </p>
             <p className="ml-2">
-              <strong>Password for test accounts*:</strong> Test
+              <strong>Password for test account*:</strong> Test
               <br />
               <small>
                 *Please note, the usernames are not case sensitive, but the
