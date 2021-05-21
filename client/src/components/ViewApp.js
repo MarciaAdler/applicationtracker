@@ -43,6 +43,22 @@ export default function Home() {
           userId: res.data.UserId,
         },
       });
+      let localStorageSelectedApp = {
+        id: res.data.id,
+        companyName: res.data.companyName,
+        role: res.data.role,
+        applicationLink: res.data.applicationLink,
+        source: res.data.source,
+        jobDescription: res.data.jobDescription,
+        notes: res.data.notes,
+        dateApplied: res.data.dateApplied,
+        status: res.data.status,
+        userId: res.data.UserId,
+      };
+      window.localStorage.setItem(
+        "selectedapp",
+        JSON.stringify(localStorageSelectedApp)
+      );
       setRedirect(true);
     });
   }

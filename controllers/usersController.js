@@ -65,6 +65,7 @@ module.exports = {
       });
   },
   selectApp: function (req, res) {
+    console.log(req.params);
     db.Application.findOne({
       where: {
         id: req.params.id,
