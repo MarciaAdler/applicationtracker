@@ -31,7 +31,7 @@ export default function SideNav() {
               Home
             </Nav.Link>
             <Nav.Link className="side-nav-link" href="/add">
-              Add Job
+              Add Application
             </Nav.Link>
             <Nav.Link className="side-nav-link" href="#/Analytics">
               Analytics

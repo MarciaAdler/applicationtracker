@@ -14,18 +14,20 @@ export default function Home() {
     } else {
       getMyApps(state.currentUser.id);
     }
-    function getMyApps(user) {
-      API.getMyApps(user)
-        .then((res) => {
-          dispatch({
-            type: SET_APPS,
-            apps: res.data,
-          });
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [dispatch, state.currentUser.id]);
+  }, []);
 
+  function getMyApps(user) {
+    console.log(user);
+    API.getMyApps(user)
+      .then((res) => {
+        console.log(res.data);
+        dispatch({
+          type: SET_APPS,
+          apps: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  }
   function selectApp(app) {
     API.selectApp(app).then((res) => {
       dispatch({

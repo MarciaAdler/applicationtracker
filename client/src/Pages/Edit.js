@@ -67,7 +67,7 @@ export default function Edit() {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridSource">
-              <Form.Label>Source</Form.Label>
+              <Form.Label className="mt-3">Source</Form.Label>
               <Form.Control
                 type="text"
                 defaultValue={state.selectedApp.source}
@@ -75,7 +75,7 @@ export default function Edit() {
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridRole">
-              <Form.Label>Role</Form.Label>
+              <Form.Label className="mt-3">Role</Form.Label>
               <Form.Control
                 type="text"
                 defaultValue={state.selectedApp.role}
@@ -84,7 +84,7 @@ export default function Edit() {
             </Form.Group>
 
             <Form.Group controlId="formGridCompany">
-              <Form.Label>Company</Form.Label>
+              <Form.Label className="mt-3">Company</Form.Label>
               <Form.Control
                 defaultValue={state.selectedApp.companyName}
                 ref={companyRef}
@@ -92,7 +92,7 @@ export default function Edit() {
             </Form.Group>
 
             <Form.Group controlId="formGridLink">
-              <Form.Label>Link</Form.Label>
+              <Form.Label className="mt-3">Link</Form.Label>
               <Form.Control
                 defaultValue={state.selectedApp.applicationLink}
                 ref={linkRef}
@@ -111,7 +111,7 @@ export default function Edit() {
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridNotes">
-              <Form.Label>Notes</Form.Label>
+              <Form.Label className="mt-3">Notes</Form.Label>
               <Form.Control
                 type="text"
                 defaultValue={state.selectedApp.notes}
@@ -120,11 +120,18 @@ export default function Edit() {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridStatus">
-              <Form.Label>Status:</Form.Label>
+              <Form.Label className="mt-3">
+                Status (select from dropdown):
+              </Form.Label>
               <Form.Control
+                as="select"
                 defaultValue={state.selectedApp.status}
                 ref={statusRef}
-              />
+              >
+                <option>Applied</option>
+                <option>Inprogess</option>
+                <option>Declined</option>
+              </Form.Control>
             </Form.Group>
           </Form.Row>
 

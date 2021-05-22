@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import { Container, Form, Col, Button } from "react-bootstrap";
+import { SET_APPS } from "../utils/actions";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 
 export default function AddNewApp() {
-  // eslint-disable-next-line no-unused-vars
   const [state, dispatch] = useStoreContext();
   const [selectedFile, setSelectedFile] = useState(null);
   const [filename, setFileName] = useState(null);
@@ -81,14 +81,27 @@ export default function AddNewApp() {
         if (filename !== null) {
           onFileUpload();
         }
+        getMyApps(state.currentUser.id);
+        const form = document.getElementById("myForm");
+        form.reset();
       })
       .catch((err) => {
         console.log(err);
       });
   }
+  function getMyApps(user) {
+    API.getMyApps(user)
+      .then((res) => {
+        dispatch({
+          type: SET_APPS,
+          apps: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  }
   return (
     <Container className="application-container">
-      <Form>
+      <Form id="myForm">
         <Form.Row>
           <Form.Group as={Col} controlId="formGridDate">
             <Form.Label>Date Applied</Form.Label>

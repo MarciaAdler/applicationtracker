@@ -34,6 +34,9 @@ body {
 .side-nav-quotes {
   text-align: center;
   margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 100px;
 }
 .side-nav-quotes-text {
   padding-left: 10px;
@@ -106,6 +109,9 @@ body {
   width: 50%;
 }
 
+#formGridStatus {
+  background-color: white;
+}
 /* @media only screen and (min-width: 768) {
   #signup-container {
     max-width: 65%;
