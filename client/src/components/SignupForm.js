@@ -37,7 +37,7 @@ export default function SignupForm() {
           const form = document.getElementById("myForm");
           form.reset();
         })
-        .catch((err) => alert("Username already exists"));
+        .catch((err) => console.log(err));
     }
   }
   return (

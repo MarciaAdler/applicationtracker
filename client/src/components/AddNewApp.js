@@ -161,7 +161,7 @@ export default function AddNewApp() {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group as={Col} controlId="formGridStatus">
+          <Form.Group as={Col} controlId="formGridAddStatus">
             <Form.Label>Status:</Form.Label>
             <Form.Control value="Applied" readOnly />
           </Form.Group>

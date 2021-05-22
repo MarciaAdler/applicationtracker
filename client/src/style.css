@@ -35,8 +35,7 @@ body {
   text-align: center;
   margin-top: 20px;
   position: absolute;
-  bottom: 0;
-  padding-bottom: 100px;
+  top: 250px;
 }
 .side-nav-quotes-text {
   padding-left: 10px;
@@ -64,7 +63,9 @@ body {
   margin: auto;
   width: 100vw;
 }
-
+.home-filler {
+  height: 100vh;
+}
 #home-table {
   width: 75%;
 
@@ -167,5 +168,6 @@ body {
     margin-top: 20px;
     padding-bottom: 0;
     position: relative;
+    top: auto;
   }
 }

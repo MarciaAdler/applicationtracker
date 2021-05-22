@@ -28,10 +28,15 @@ export default function Home() {
   }
   return (
     <div className="home-container">
-      {state.apps ? (
+      {!state.apps ? (
         <ViewApp />
       ) : (
-        "No Apps. Click Add Job on the side to add your first application"
+        <div className="home-filler">
+          <p className="text-center mt-4">
+            No Apps. Click Add Application on the side to add your first
+            application
+          </p>
+        </div>
       )}
     </div>
   );

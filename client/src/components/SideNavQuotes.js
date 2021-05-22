@@ -10,6 +10,13 @@ export default function SideNavQuotes() {
         "Remember: It's not that you're underqualified or overqualified or
         whatever they told you. It's that your flame is too bright"
       </p>
+      <p className="side-nav-quotes-text">
+        "You are good enough. Don't let imposter syndrome make you feel
+        otherwise."
+      </p>
+      <p className="side-nav-quotes-text">
+        "Don't count yourself out before you even apply"
+      </p>
     </div>
   );
 }
