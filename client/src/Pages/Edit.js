@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container, Form, Col, Button } from "react-bootstrap";
 import { SELECT_APP } from "../utils/actions";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
-
+import { Redirect } from "react-router-dom";
 export default function Edit() {
   const [state, dispatch] = useStoreContext();
-  const dateRef = useRef();
+  const [redirect, setRedirect] = useState(false);
   const roleRef = useRef();
   const companyRef = useRef();
   const linkRef = useRef();
@@ -51,6 +51,50 @@ export default function Edit() {
       });
     }
   }
+  function editApp() {
+    API.editApp({
+      id: state.selectedApp.id,
+      companyName: companyRef.current.value,
+      role: roleRef.current.value,
+      applicationLink: linkRef.current.value,
+      source: sourceRef.current.value,
+      notes: notesRef.current.value,
+      status: statusRef.current.value,
+      jobDescription: state.selectedApp.jobDescription,
+    })
+      .then((res) => {
+        console.log(res.data);
+        dispatch({
+          type: SELECT_APP,
+          selectedApp: {
+            id: res.data.id,
+            companyName: res.data.companyName,
+            role: res.data.role,
+            applicationLink: res.data.applicationLink,
+            source: res.data.source,
+            jobDescription: res.data.jobDescription,
+            notes: res.data.notes,
+            dateApplied: res.data.dateApplied,
+            status: res.data.status,
+            userId: state.currentUser.id,
+          },
+        });
+        setRedirect(true);
+      })
+      .catch((err) => console.log(err));
+  }
+  const renderRedirect = () => {
+    if (state.selectedApp && redirect) {
+      return (
+        <Redirect
+          push
+          to={{
+            pathname: "/",
+          }}
+        />
+      );
+    }
+  };
   return (
     <Container className="application-container">
       {state.selectedApp ? (
@@ -61,7 +105,6 @@ export default function Edit() {
               <Form.Control
                 type="date"
                 value={state.selectedApp.dateApplied}
-                ref={dateRef}
                 readOnly
               />
             </Form.Group>
@@ -104,7 +147,7 @@ export default function Edit() {
               <Form.Label>JD</Form.Label>
               <Form.Control
                 type="text"
-                value={state.selectedApp.jobDescription}
+                defaultValue={state.selectedApp.jobDescription}
                 readOnly
               ></Form.Control>
             </Form.Group>
@@ -139,7 +182,7 @@ export default function Edit() {
             className="mt-3"
             variant="primary"
             type="button"
-            onClick={() => {}}
+            onClick={editApp}
           >
             Update
           </Button>
@@ -147,6 +190,7 @@ export default function Edit() {
       ) : (
         "No App Selected"
       )}
+      {renderRedirect()}
     </Container>
   );
 }

@@ -22,7 +22,10 @@ export default {
     return axios.get("/api/getmyapps/" + user);
   },
   selectApp: function (app) {
-    console.log(app);
     return axios.get("/api/selectapp/" + app);
+  },
+  editApp: function (app) {
+    console.log(app);
+    return axios.put("/api/editapp", app);
   },
 };

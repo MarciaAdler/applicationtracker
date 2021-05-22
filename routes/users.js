@@ -17,4 +17,6 @@ router.route("/api/getmyapps/:id").get(usersController.getMyApps);
 
 router.route("/api/selectapp/:id").get(usersController.selectApp);
 
+router.route("/api/editapp").put(usersController.editApp);
+
 module.exports = router;

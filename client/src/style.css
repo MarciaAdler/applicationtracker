@@ -165,5 +165,7 @@ body {
   .side-nav-quotes {
     bottom: 0;
     margin-top: 20px;
+    padding-bottom: 0;
+    position: relative;
   }
 }

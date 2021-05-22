@@ -76,4 +76,21 @@ module.exports = {
         res.status(401).json(err);
       });
   },
+  editApp: function (req, res) {
+    db.Application.update(
+      {
+        companyName: req.body.companyName,
+        role: req.body.role,
+        applicationLink: req.body.applicationLink,
+        source: req.body.source,
+        notes: req.body.notes,
+        status: req.body.status,
+      },
+      { where: { id: req.body.id } }
+    )
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
 };
