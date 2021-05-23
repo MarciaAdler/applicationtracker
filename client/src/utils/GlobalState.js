@@ -91,6 +91,19 @@ const StoreProvider = ({ value = [], ...props }) => {
       email: "",
     },
     loggedIn: false,
+    apps: [],
+    selectedApp: {
+      id: 0,
+      companyName: "",
+      role: "",
+      applicationLink: "",
+      source: "",
+      jobDescription: "",
+      notes: "",
+      dateApplied: "",
+      userId: 0,
+      status: "",
+    },
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };
