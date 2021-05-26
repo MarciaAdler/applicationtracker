@@ -4,6 +4,7 @@ import { SELECT_APP, SET_APPS } from "../utils/actions";
 import { useStoreContext } from "../utils/GlobalState";
 import API from "../utils/API";
 import { Redirect } from "react-router-dom";
+import image from "../images/applicationimg.jpeg";
 export default function Home() {
   const [state, dispatch] = useStoreContext();
   const [redirect, setRedirect] = useState(false);
@@ -167,9 +168,12 @@ export default function Home() {
             );
           })
         ) : (
-          <p className="text-center mt-3">
-            No Apps. Click Add Application in the side menu to add an app.
-          </p>
+          <div className="text-center">
+            <p className="text-center mt-3 noapp-text">
+              No Apps. Click Add Application in the side menu to add an app.
+            </p>
+            <img id="applicationimg" src={image} alt="logo" />
+          </div>
         )}
       </ListGroup>
       {renderRedirect()}

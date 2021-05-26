@@ -113,6 +113,15 @@ body {
 #formGridStatus {
   background-color: white;
 }
+#applicationimg {
+  height: 200px;
+  width: auto;
+  border-radius: 2em;
+}
+.noapp-text {
+  margin-left: 20px;
+  margin-right: 20px;
+}
 /* @media only screen and (min-width: 768) {
   #signup-container {
     max-width: 65%;
@@ -123,7 +132,7 @@ body {
   .side-nav-container {
     float: none;
     padding-right: 0;
-    margin-right: 30px;
+
     width: 100% !important;
     margin-top: 0;
     min-height: auto;
@@ -169,6 +178,8 @@ body {
     padding-bottom: 0;
     position: relative;
     top: auto;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .home-filler {
     height: 100%;
