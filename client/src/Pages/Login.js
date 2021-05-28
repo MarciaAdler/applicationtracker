@@ -6,15 +6,13 @@ export default function Signin() {
   return (
     <Container className="signup-container">
       <h1 className="signin-title">Application Tracker Login</h1>
-      <Row className="signin--container">
-        <Col className="col-12 col-sm-6 signin--login-form">
-          <div className="loginform--div">
-            <LoginForm />
-          </div>
+      <Row className="signin-container">
+        <Col className="col-12 col-md-8 signin-container">
+          <LoginForm />
         </Col>
       </Row>
       <Row>
-        <Col className="col-12">
+        <Col className="col-12 col-md-8">
           <div className="test-accounts mt-5">
             <h5 className="mt-2 ml-2">
               <strong>

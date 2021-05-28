@@ -53,7 +53,29 @@ body {
   top: 0;
   z-index: 1;
 }
-
+.loginform-button {
+  margin-top: 10px;
+  background-color: #48639c;
+  border-color: #48639c;
+}
+.editapp-button {
+  background-color: #48639c;
+  border-color: #48639c;
+  color: white;
+  border-radius: 0.2em;
+  height: 30px;
+  font-size: 15px;
+  padding: 0;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#loginform-reset {
+  margin-left: 10px;
+  margin-top: 15px;
+}
+#loginform-loginorreset {
+  display: flex;
+}
 #header-title {
   margin: auto;
   width: 100vw;
@@ -77,6 +99,7 @@ body {
   margin-top: 20px;
   height: 100%;
 }
+
 .application-container {
   width: 65% !important;
   float: right;
@@ -154,7 +177,7 @@ body {
     width: auto;
   }
   .signup-container {
-    max-width: 100%;
+    width: 80% !important;
     float: none;
   }
   .application-container {
@@ -183,5 +206,8 @@ body {
   }
   .home-filler {
     height: 100%;
+  }
+  #loginform-reset {
+    margin-top: 8px;
   }
 }

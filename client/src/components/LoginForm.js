@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useStoreContext } from "../utils/GlobalState";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Col } from "react-bootstrap";
 import API from "../utils/API";
 import { Redirect } from "react-router-dom";
 import { LOGGEDIN, SET_CURRENT_USER } from "../utils/actions";
@@ -53,8 +53,8 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="loginform--wrapper">
-      <Form className="loginform--form div-to-align">
+    <div className="loginform-wrapper">
+      <Form className="loginform-form div-to-align">
         <Form.Group controlId="formUsername">
           <Form.Label>
             <strong>Username</strong>
@@ -76,13 +76,22 @@ export default function LoginForm() {
             ref={passwordRef}
           />
         </Form.Group>
-
-        <Button className="button" type="submit" onClick={login}>
-          Sign-in
-        </Button>
-        <span className="ml-3">
-          Click <a href="/reset">here</a> to reset password
-        </span>
+        <Form.Row id="loginform-loginorreset">
+          <Col className="col-4">
+            <Button
+              className="button loginform-button"
+              type="submit"
+              onClick={login}
+            >
+              Sign-in
+            </Button>
+          </Col>
+          <Col className="col-8" id="loginform-reset">
+            <span>
+              Click <a href="/reset">here</a> to reset password
+            </span>
+          </Col>
+        </Form.Row>
       </Form>
       {renderRedirect()}
     </div>

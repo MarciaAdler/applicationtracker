@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ListGroup, Col, Row } from "react-bootstrap";
+import { ListGroup, Col, Row, Button } from "react-bootstrap";
 import { SELECT_APP, SET_APPS } from "../utils/actions";
 import { useStoreContext } from "../utils/GlobalState";
 import API from "../utils/API";
@@ -155,13 +155,14 @@ export default function Home() {
                     <span className="application-text">{app.status}</span>
                   </Col>
                   <Col xs={6} md={4}>
-                    <button
+                    <Button
+                      className="editapp-button"
                       onClick={() => {
                         selectApp(app.id);
                       }}
                     >
                       <strong>Edit</strong>
-                    </button>
+                    </Button>
                   </Col>
                 </Row>
               </ListGroup.Item>
