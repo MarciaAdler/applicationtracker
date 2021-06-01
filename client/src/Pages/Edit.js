@@ -179,7 +179,7 @@ export default function Edit() {
           </Form.Row>
 
           <Button
-            className="mt-3"
+            className="mt-3 editapp-button"
             variant="primary"
             type="button"
             onClick={editApp}
