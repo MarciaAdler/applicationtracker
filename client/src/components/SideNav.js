@@ -30,6 +30,9 @@ export default function SideNav() {
             <Nav.Link className="side-nav-link" href="/">
               Home
             </Nav.Link>
+            <Nav.Link className="side-nav-link" href="/applications">
+              Applications
+            </Nav.Link>
             <Nav.Link className="side-nav-link" href="/add">
               Add Application
             </Nav.Link>

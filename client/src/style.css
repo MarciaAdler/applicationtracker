@@ -38,6 +38,7 @@ a:hover {
   width: 25% !important;
   margin-left: 0;
   float: left;
+  padding-bottom: 70px;
 }
 .side-nav-color {
   background-color: #97abb1;
@@ -50,7 +51,7 @@ a:hover {
   text-align: center;
   margin-top: 20px;
   position: absolute;
-  top: 250px;
+  bottom: 0;
 }
 .side-nav-quotes-text {
   padding-left: 10px;
@@ -101,7 +102,7 @@ a:hover {
   width: 100vw;
 }
 .home-filler {
-  height: 100vh;
+  height: 100%;
 }
 #home-table {
   width: 75%;

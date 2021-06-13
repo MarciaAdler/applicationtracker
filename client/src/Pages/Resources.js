@@ -8,39 +8,71 @@ export default function Resources() {
       <h6>For all Job Seekers</h6>
       <ListGroup className="resources-listgroup">
         <ListGroup.Item>
-          <a href="https://Wonsulting.com">Wonsulting.com</a>
+          <a href="https://Wonsulting.com" target="_blank" rel="noreferrer">
+            Wonsulting.com
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="https://www.linkedin.com/in/jonathan-wonsulting/">
+          <a
+            href="https://www.linkedin.com/in/jonathan-wonsulting/"
+            target="_blank"
+            rel="noreferrer"
+          >
             Jonathan Javier on LinkedIn
           </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="https://www.indeed.com/">Indeed</a>
+          <a href="https://www.indeed.com/" target="_blank" rel="noreferrer">
+            Indeed
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="https://www.glassdoor.com/index.htm">Glassdoor</a>
+          <a
+            href="https://www.glassdoor.com/index.htm"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Glassdoor
+          </a>
         </ListGroup.Item>
       </ListGroup>
       <h6 className="mt-2">For Women Job Seekers</h6>
       <ListGroup className="resources-listgroup">
         <ListGroup.Item>
-          <a href="https://fairygodboss.com/community/feed">Fairy God Boss</a>
+          <a
+            href="https://fairygodboss.com/community/feed"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Fairy God Boss
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="https://www.hiretechladies.com/">Tech Ladies</a>
+          <a
+            href="https://www.hiretechladies.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Tech Ladies
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="https://powertofly.com/">PowerToFly</a>
+          <a href="https://powertofly.com/" target="_blank" rel="noreferrer">
+            PowerToFly
+          </a>
         </ListGroup.Item>
       </ListGroup>
       <h6 className="mt-2">Tech Job Seekers</h6>
       <ListGroup className="resources-listgroup">
         <ListGroup.Item>
-          <a href="https://builtin.com/">BuiltIn</a>
+          <a href="https://builtin.com/" target="_blank" rel="noreferrer">
+            BuiltIn
+          </a>
         </ListGroup.Item>
         <ListGroup.Item>
-          <a href="https://angel.co/jobs">AngelList</a>
+          <a href="https://angel.co/jobs" target="_blank" rel="noreferrer">
+            AngelList
+          </a>
         </ListGroup.Item>
       </ListGroup>
     </div>

@@ -6,6 +6,7 @@ import {
   LOGGEDIN,
   SET_APPS,
   SELECT_APP,
+  SET_SEARCH,
 } from "./actions";
 
 const StoreContext = createContext();
@@ -52,6 +53,11 @@ const reducer = (state, action) => {
           status: action.selectedApp.status,
         },
       };
+    case SET_SEARCH:
+      return {
+        ...state,
+        selectedsearch: action.selectedsearch,
+      };
     case CLEAR_ALL:
       return {
         currentUser: {
@@ -74,6 +80,10 @@ const reducer = (state, action) => {
           dateApplied: "",
           userId: 0,
           status: "",
+        },
+        selectedsearch: {
+          id: 0,
+          name: "",
         },
       };
     default:
@@ -103,6 +113,10 @@ const StoreProvider = ({ value = [], ...props }) => {
       dateApplied: "",
       userId: 0,
       status: "",
+    },
+    selectedsearch: {
+      id: 0,
+      name: "",
     },
   });
   return <Provider value={[state, dispatch]} {...props} />;

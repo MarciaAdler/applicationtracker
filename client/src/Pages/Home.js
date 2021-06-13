@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { SET_APPS } from "../utils/actions";
 import { useStoreContext } from "../utils/GlobalState";
 import API from "../utils/API";
-import ViewApp from "../components/ViewApp";
+import Search from "../components/Search";
 export default function Home() {
-  // const [state, dispatch] = useStoreContext();
+  const [state, dispatch] = useStoreContext();
   // useEffect(() => {
   //   if (state.currentUser.id === 0 && localStorage.getItem("currentUser")) {
   //     const currentUserLs = JSON.parse(localStorage.getItem("currentUser"));
@@ -29,7 +29,11 @@ export default function Home() {
   return (
     <div className="home-container">
       <div className="home-filler">
-        <ViewApp />
+        {state.searches ? (
+          <Search />
+        ) : (
+          <h3 className="mt-2">Add a Search to get started</h3>
+        )}
       </div>
     </div>
   );

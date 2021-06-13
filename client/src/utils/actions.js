@@ -3,3 +3,4 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const LOGGEDIN = "LOGGEDIN";
 export const SET_APPS = "SET_APPS";
 export const SELECT_APP = "SELECT_APP";
+export const SET_SEARCH = "SET_SEARCH";

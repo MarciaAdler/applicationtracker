@@ -1,6 +1,5 @@
 // creating application model
 
-// creating feed post model
 module.exports = function (sequelize, DataTypes) {
   var Application = sequelize.define("Application", {
     companyName: {

@@ -73,8 +73,9 @@ module.exports = function (sequelize, DataTypes) {
       null
     );
   });
+
   User.associate = function (models) {
-    User.hasMany(models.Application, {
+    User.hasMany(models.Search, {
       foreignKey: "UserId",
     });
   };
