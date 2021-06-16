@@ -14,6 +14,7 @@ import Resources from "./Pages/Resources";
 import SideNavQuotes from "./components/SideNavQuotes";
 import Edit from "./Pages/Edit";
 import Applications from "./Pages/Applications";
+import AddSearches from "./Pages/AddSearches";
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
             <Route path="/applications" component={Applications} />
             <Route path="/signup" component={Signup} />
             <Route path="/add" component={Add} />
+            <Route path="/addsearch" component={AddSearches} />
             <Route path="/edit" component={Edit} />
             <Route path="/resources" component={Resources} />
           </Switch>

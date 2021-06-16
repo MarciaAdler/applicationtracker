@@ -7,6 +7,7 @@ import {
   SET_APPS,
   SELECT_APP,
   SET_SEARCH,
+  SET_SEARCHES,
 } from "./actions";
 
 const StoreContext = createContext();
@@ -53,6 +54,11 @@ const reducer = (state, action) => {
           status: action.selectedApp.status,
         },
       };
+    case SET_SEARCHES:
+      return {
+        ...state,
+        searches: action.searches,
+      };
     case SET_SEARCH:
       return {
         ...state,
@@ -81,6 +87,7 @@ const reducer = (state, action) => {
           userId: 0,
           status: "",
         },
+        searches: [],
         selectedsearch: {
           id: 0,
           name: "",
@@ -114,6 +121,7 @@ const StoreProvider = ({ value = [], ...props }) => {
       userId: 0,
       status: "",
     },
+    searches: [],
     selectedsearch: {
       id: 0,
       name: "",

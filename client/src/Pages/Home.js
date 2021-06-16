@@ -29,10 +29,12 @@ export default function Home() {
   return (
     <div className="home-container">
       <div className="home-filler">
-        {state.searches ? (
+        {state.searches.length !== 0 ? (
           <Search />
         ) : (
-          <h3 className="mt-2">Add a Search to get started</h3>
+          <h3 className="mt-2">
+            <a href="/addsearch">Add a Search</a> to get started
+          </h3>
         )}
       </div>
     </div>

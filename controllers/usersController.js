@@ -2,6 +2,7 @@ const db = require("../models");
 var fs = require("fs");
 const { Op } = require("sequelize");
 const { Sequelize } = require("sequelize");
+const { runInNewContext } = require("vm");
 
 module.exports = {
   createUser: function (req, res) {
@@ -88,6 +89,16 @@ module.exports = {
       },
       { where: { id: req.body.id } }
     )
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
+  addSearch: function (req, res) {
+    db.Search.create({
+      searchName: req.body.name,
+      UserId: req.body.userId,
+    })
       .then((dbModel) => res.json(dbModel))
       .catch(function (err) {
         res.status(401).json(err);

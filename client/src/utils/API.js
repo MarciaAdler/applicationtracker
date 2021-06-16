@@ -28,4 +28,7 @@ export default {
     console.log(app);
     return axios.put("/api/editapp", app);
   },
+  addSearch: function (search) {
+    return axios.post("/api/addsearch", search);
+  },
 };
