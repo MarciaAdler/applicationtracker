@@ -10,11 +10,13 @@ export default function Search() {
     API.addSearch({
       name: searchNameRef.current.value,
       userId: state.currentUser.id,
-    }).then((res) => {
-      const form = document.getElementById("myForm");
-      form.reset();
-      console.log(res.data);
-    });
+    })
+      .then((res) => {
+        const form = document.getElementById("myForm");
+        form.reset();
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
   }
   return (
     <div className="resources-container">

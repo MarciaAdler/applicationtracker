@@ -109,6 +109,9 @@ a:hover {
 
   float: right;
 }
+#add-new-search {
+  margin-top: 20px;
+}
 .signup-container {
   width: 65% !important;
   float: right;

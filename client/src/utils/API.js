@@ -31,4 +31,7 @@ export default {
   addSearch: function (search) {
     return axios.post("/api/addsearch", search);
   },
+  getSearches: function (user) {
+    return axios.get("/api/getsearches/" + user);
+  },
 };

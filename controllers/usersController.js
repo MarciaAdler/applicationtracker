@@ -104,4 +104,16 @@ module.exports = {
         res.status(401).json(err);
       });
   },
+  getSearches: function (req, res) {
+    console.log(req.params);
+    db.Search.findAll({
+      where: {
+        UserId: req.params.id,
+      },
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
 };

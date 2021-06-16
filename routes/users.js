@@ -21,4 +21,6 @@ router.route("/api/editapp").put(usersController.editApp);
 
 router.route("/api/addsearch").post(usersController.addSearch);
 
+router.route("/api/getsearches/:id").get(usersController.getSearches);
+
 module.exports = router;
