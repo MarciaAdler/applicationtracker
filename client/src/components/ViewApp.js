@@ -44,7 +44,7 @@ export default function Home() {
           dateApplied: res.data.dateApplied,
           status: res.data.status,
           userId: res.data.UserId,
-          searchid: res.data.SearchId,
+          searchId: res.data.Search.searchName,
         },
       });
       let localStorageSelectedApp = {
@@ -58,7 +58,7 @@ export default function Home() {
         dateApplied: res.data.dateApplied,
         status: res.data.status,
         userId: res.data.UserId,
-        searchid: res.data.SearchId,
+        searchId: res.data.SearchId,
       };
       window.localStorage.setItem(
         "selectedapp",

@@ -78,6 +78,12 @@ module.exports = {
       where: {
         id: req.params.id,
       },
+      include: [
+        {
+          model: db.Search,
+          as: "Search",
+        },
+      ],
     })
       .then((dbModel) => res.json(dbModel))
       .catch(function (err) {

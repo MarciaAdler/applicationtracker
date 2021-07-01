@@ -37,6 +37,7 @@ export default function Edit() {
             dateApplied: res.data.dateApplied,
             status: res.data.status,
             userId: res.data.UserId,
+            searchId: res.data.SearchId,
           };
           dispatch({
             type: SELECT_APP,
@@ -77,6 +78,7 @@ export default function Edit() {
             dateApplied: res.data.dateApplied,
             status: res.data.status,
             userId: state.currentUser.id,
+            searchId: res.data.searchId,
           },
         });
         setRedirect(true);
@@ -99,6 +101,9 @@ export default function Edit() {
     <Container className="application-container">
       {state.selectedApp ? (
         <Form>
+          <Form.Row>
+            <Form.Label>Search: {state.selectedApp.searchId}</Form.Label>
+          </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridDate">
               <Form.Label>Date Applied</Form.Label>
