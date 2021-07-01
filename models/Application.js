@@ -36,6 +36,19 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: "Applied",
     },
   });
-
+  Application.associate = function (models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    Application.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+      },
+    }),
+      Application.belongsTo(models.Search, {
+        foreignKey: {
+          allowNull: false,
+        },
+      });
+  };
   return Application;
 };

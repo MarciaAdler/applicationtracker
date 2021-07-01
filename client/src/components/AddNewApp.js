@@ -1,6 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Container, Form, Col, Button } from "react-bootstrap";
-import { SET_APPS } from "../utils/actions";
+import { SET_APPS, SET_SEARCHES } from "../utils/actions";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 
@@ -8,13 +8,22 @@ export default function AddNewApp() {
   const [state, dispatch] = useStoreContext();
   const [selectedFile, setSelectedFile] = useState(null);
   const [filename, setFileName] = useState(null);
+  const [searchid, setSearchId] = useState(null);
   const dateRef = useRef();
   const roleRef = useRef();
   const companyRef = useRef();
   const linkRef = useRef();
   const notesRef = useRef();
   const sourceRef = useRef();
-
+  const searchRef = useRef();
+  useEffect(() => {
+    if (state.currentUser.id === 0 && localStorage.getItem("currentUser")) {
+      const currentUserLs = JSON.parse(localStorage.getItem("currentUser"));
+      getSearches(currentUserLs.id);
+    } else {
+      getSearches(state.currentUser.id);
+    }
+  }, []);
   const onFileChange = (event) => {
     const nameOfFile = event.target.files[0].name.replace(/\s+/g, "");
     // Update the state
@@ -23,6 +32,7 @@ export default function AddNewApp() {
       state.currentUser.id + "-" + dateRef.current.value + "-" + nameOfFile
     );
   };
+
   // On file upload (click the upload button)
   const onFileUpload = () => {
     // Create an object of formData
@@ -65,6 +75,12 @@ export default function AddNewApp() {
       );
     }
   };
+  function handleSelectChange(event) {
+    console.log(event.target);
+    let selectElement = event.target;
+    console.log(selectElement.value);
+    setSearchId(selectElement.value);
+  }
   function addApp() {
     API.addApp({
       companyName: companyRef.current.value,
@@ -74,7 +90,8 @@ export default function AddNewApp() {
       jobDescription: filename,
       notes: notesRef.current.value,
       dateApplied: dateRef.current.value,
-      userId: state.currentUser.id,
+      UserId: state.currentUser.id,
+      SearchId: searchid,
     })
       .then((req) => {
         console.log(req.data);
@@ -99,9 +116,32 @@ export default function AddNewApp() {
       })
       .catch((err) => console.log(err));
   }
+  function getSearches(user) {
+    API.getSearches(user)
+      .then((res) => {
+        dispatch({ type: SET_SEARCHES, searches: res.data });
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <Container className="application-container">
       <Form id="myForm">
+        <Form.Row>
+          <Form.Label>Search</Form.Label>
+          <select onChange={handleSelectChange}>
+            <option>Select which Search to include this application in</option>
+            {state.searches.length > 0
+              ? state.searches.map((search) => {
+                  return (
+                    <option value={search.id} key={search.id}>
+                      {search.searchName}
+                    </option>
+                  );
+                })
+              : "no searches"}
+          </select>
+        </Form.Row>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridDate">
             <Form.Label>Date Applied</Form.Label>

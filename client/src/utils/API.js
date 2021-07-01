@@ -34,4 +34,8 @@ export default {
   getSearches: function (user) {
     return axios.get("/api/getsearches/" + user);
   },
+  getSearchId: function (search) {
+    console.log(search);
+    return axios.get("/api/getsearchid/" + search);
+  },
 };

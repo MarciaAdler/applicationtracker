@@ -36,6 +36,7 @@ module.exports = {
       });
   },
   addApp: function (req, res) {
+    console.log(req.body);
     db.Application.create({
       companyName: req.body.companyName,
       role: req.body.role,
@@ -44,7 +45,8 @@ module.exports = {
       jobDescription: req.body.jobDescription,
       notes: req.body.notes,
       dateApplied: req.body.dateApplied,
-      UserId: req.body.userId,
+      SearchId: req.body.SearchId,
+      UserId: req.body.UserId,
     })
       .then(function (user) {
         res.json(user);
@@ -105,10 +107,21 @@ module.exports = {
       });
   },
   getSearches: function (req, res) {
-    console.log(req.params);
     db.Search.findAll({
       where: {
         UserId: req.params.id,
+      },
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
+  getSearchId: function (req, res) {
+    console.log(req.params);
+    db.Search.findOne({
+      where: {
+        searchName: req.params.name,
       },
     })
       .then((dbModel) => res.json(dbModel))

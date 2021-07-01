@@ -23,4 +23,6 @@ router.route("/api/addsearch").post(usersController.addSearch);
 
 router.route("/api/getsearches/:id").get(usersController.getSearches);
 
+router.route("/api/getsearchid/:name").get(usersController.getSearchId);
+
 module.exports = router;
