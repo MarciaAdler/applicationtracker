@@ -44,6 +44,7 @@ export default function Home() {
           dateApplied: res.data.dateApplied,
           status: res.data.status,
           userId: res.data.UserId,
+          searchid: res.data.SearchId,
         },
       });
       let localStorageSelectedApp = {
@@ -57,6 +58,7 @@ export default function Home() {
         dateApplied: res.data.dateApplied,
         status: res.data.status,
         userId: res.data.UserId,
+        searchid: res.data.SearchId,
       };
       window.localStorage.setItem(
         "selectedapp",
@@ -153,6 +155,12 @@ export default function Home() {
                   <Col xs={6} md={4}>
                     <strong>Status:</strong>&nbsp;{" "}
                     <span className="application-text">{app.status}</span>
+                  </Col>
+                  <Col xs={6} md={4}>
+                    <strong>Search:</strong>&nbsp;{" "}
+                    <span className="application-text">
+                      {app.Search.searchName}
+                    </span>
                   </Col>
                   <Col xs={6} md={4}>
                     <Button

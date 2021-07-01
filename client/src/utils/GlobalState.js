@@ -52,6 +52,7 @@ const reducer = (state, action) => {
           dateApplied: action.selectedApp.dateApplied,
           userId: action.selectedApp.userId,
           status: action.selectedApp.status,
+          searchId: action.selectedApp.searchId,
         },
       };
     case SET_SEARCHES:
@@ -86,6 +87,7 @@ const reducer = (state, action) => {
           dateApplied: "",
           userId: 0,
           status: "",
+          searchId: 0,
         },
         searches: [],
         selectedsearch: {
@@ -120,6 +122,7 @@ const StoreProvider = ({ value = [], ...props }) => {
       dateApplied: "",
       userId: 0,
       status: "",
+      searchId: 0,
     },
     searches: [],
     selectedsearch: {

@@ -2,7 +2,6 @@ const db = require("../models");
 var fs = require("fs");
 const { Op } = require("sequelize");
 const { Sequelize } = require("sequelize");
-const { runInNewContext } = require("vm");
 
 module.exports = {
   createUser: function (req, res) {
@@ -60,6 +59,12 @@ module.exports = {
       where: {
         UserId: req.params.id,
       },
+      include: [
+        {
+          model: db.Search,
+          as: "Search",
+        },
+      ],
       order: [["createdAt", "DESC"]],
     })
       .then((dbModel) => res.json(dbModel))
