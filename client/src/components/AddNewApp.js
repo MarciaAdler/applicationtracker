@@ -129,8 +129,10 @@ export default function AddNewApp() {
       <Form id="myForm">
         <Form.Row>
           <Form.Label>Search</Form.Label>
-          <select onChange={handleSelectChange}>
-            <option>Select which Search to include this application in</option>
+          <Form.Control as="select" onChange={handleSelectChange}>
+            <option>
+              Click to select which Search to include this application in
+            </option>
             {state.searches.length > 0
               ? state.searches.map((search) => {
                   return (
@@ -140,7 +142,7 @@ export default function AddNewApp() {
                   );
                 })
               : "no searches"}
-          </select>
+          </Form.Control>
         </Form.Row>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridDate">

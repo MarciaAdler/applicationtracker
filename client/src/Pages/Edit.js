@@ -16,13 +16,12 @@ export default function Edit() {
 
   useEffect(() => {
     loadRequest(window.location.search);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   function loadRequest(url) {
     console.log("From loadRequest function: ");
     console.log(url.replace("?", ""));
 
-    if (!state.selectedApp) {
+    if (state.selectedApp.id === 0) {
       API.selectApp(url.replace("?", ""))
         .then((res) => {
           console.log(res.data);
