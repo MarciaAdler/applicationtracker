@@ -15,7 +15,6 @@ export default function AddNewApp() {
   const linkRef = useRef();
   const notesRef = useRef();
   const sourceRef = useRef();
-  const searchRef = useRef();
   useEffect(() => {
     if (state.currentUser.id === 0 && localStorage.getItem("currentUser")) {
       const currentUserLs = JSON.parse(localStorage.getItem("currentUser"));
