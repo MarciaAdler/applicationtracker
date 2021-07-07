@@ -15,6 +15,7 @@ import SideNavQuotes from "./components/SideNavQuotes";
 import Edit from "./Pages/Edit";
 import Applications from "./Pages/Applications";
 import AddSearches from "./Pages/AddSearches";
+import SearchApps from "./Pages/SearchApps";
 function App() {
   return (
     <div className="App">
@@ -31,6 +32,7 @@ function App() {
             <Route path="/addsearch" component={AddSearches} />
             <Route path="/edit" component={Edit} />
             <Route path="/resources" component={Resources} />
+            <Route path="/searchapps" component={SearchApps} />
           </Switch>
         </Router>
       </StoreProvider>

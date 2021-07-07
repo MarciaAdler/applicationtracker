@@ -63,7 +63,10 @@ const reducer = (state, action) => {
     case SET_SEARCH:
       return {
         ...state,
-        selectedsearch: action.selectedsearch,
+        selectedsearch: {
+          id: action.selectedsearch.id,
+          searchName: action.selectedsearch.searchName,
+        },
       };
     case CLEAR_ALL:
       return {

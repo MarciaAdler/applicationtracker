@@ -36,7 +36,7 @@ export default function Edit() {
             dateApplied: res.data.dateApplied,
             status: res.data.status,
             userId: res.data.UserId,
-            searchId: res.data.SearchId,
+            searchId: res.data.Search.searchName,
           };
           dispatch({
             type: SELECT_APP,

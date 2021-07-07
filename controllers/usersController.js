@@ -140,4 +140,33 @@ module.exports = {
         res.status(401).json(err);
       });
   },
+  getSearch: function (req, res) {
+    db.Search.findOne({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
+  getSearchApps: function (req, res) {
+    console.log(req.params);
+    db.Application.findAll({
+      where: {
+        SearchId: req.params.id,
+      },
+      include: [
+        {
+          model: db.Search,
+          as: "Search",
+        },
+      ],
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
 };
