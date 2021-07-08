@@ -56,7 +56,6 @@ export default function Edit() {
   function refreshApp(id) {
     API.refreshSelectedApp(state.selectedApp.id)
       .then((res) => {
-        console.log(res.data);
         dispatch({
           type: SELECT_APP,
           selectedApp: {
