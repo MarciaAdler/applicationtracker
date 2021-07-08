@@ -43,4 +43,7 @@ export default {
   getSearchApps: function (search) {
     return axios.get("/api/getsearchapps/" + search);
   },
+  refreshSelectedApp: function (app) {
+    return axios.get("/api/refreshapp/" + app);
+  },
 };

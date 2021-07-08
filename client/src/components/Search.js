@@ -9,7 +9,7 @@ export default function Search() {
   const [redirect, setRedirect] = useState(false);
   useEffect(() => {
     getSearches(state.currentUser.id);
-  });
+  }, []);
   function getSearches(user) {
     API.getSearches(user)
       .then((res) => {
@@ -63,6 +63,7 @@ export default function Search() {
           ? state.searches.map((search) => {
               return (
                 <ListGroup.Item
+                  className="search-item"
                   key={search.id}
                   onClick={() => {
                     selectSearch(search.id);

@@ -65,7 +65,7 @@ module.exports = {
           as: "Search",
         },
       ],
-      order: [["createdAt", "DESC"]],
+      order: [["dateApplied", "DESC"]],
     })
       .then((dbModel) => res.json(dbModel))
       .catch(function (err) {
@@ -91,6 +91,7 @@ module.exports = {
       });
   },
   editApp: function (req, res) {
+    console.log("edit", req.body);
     db.Application.update(
       {
         companyName: req.body.companyName,
@@ -122,6 +123,7 @@ module.exports = {
       where: {
         UserId: req.params.id,
       },
+      order: [["createdAt", "DESC"]],
     })
       .then((dbModel) => res.json(dbModel))
       .catch(function (err) {
@@ -156,6 +158,24 @@ module.exports = {
     db.Application.findAll({
       where: {
         SearchId: req.params.id,
+      },
+      include: [
+        {
+          model: db.Search,
+          as: "Search",
+        },
+      ],
+      order: [["dateApplied", "DESC"]],
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
+  refreshSelectedApp: function (req, res) {
+    db.Application.findOne({
+      where: {
+        id: req.params.id,
       },
       include: [
         {

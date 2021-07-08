@@ -204,12 +204,12 @@ export default function AddNewApp() {
 
           <Form.Group as={Col} controlId="formGridAddStatus">
             <Form.Label>Status:</Form.Label>
-            <Form.Control value="Applied" readOnly />
+            <Form.Control defaultValue="Applied" readOnly />
           </Form.Group>
         </Form.Row>
 
         <Button
-          className="mt-3"
+          className="mt-3 editapp-button"
           variant="primary"
           type="button"
           onClick={() => {

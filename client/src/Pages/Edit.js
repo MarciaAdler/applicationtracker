@@ -13,7 +13,9 @@ export default function Edit() {
   const notesRef = useRef();
   const sourceRef = useRef();
   const statusRef = useRef();
-
+  const dateRef = useRef();
+  const fileRef = useRef();
+  const searchRef = useRef();
   useEffect(() => {
     loadRequest(window.location.search);
   }, []);
@@ -51,17 +53,8 @@ export default function Edit() {
       });
     }
   }
-  function editApp() {
-    API.editApp({
-      id: state.selectedApp.id,
-      companyName: companyRef.current.value,
-      role: roleRef.current.value,
-      applicationLink: linkRef.current.value,
-      source: sourceRef.current.value,
-      notes: notesRef.current.value,
-      status: statusRef.current.value,
-      jobDescription: state.selectedApp.jobDescription,
-    })
+  function refreshApp(id) {
+    API.refreshSelectedApp(state.selectedApp.id)
       .then((res) => {
         console.log(res.data);
         dispatch({
@@ -77,10 +70,26 @@ export default function Edit() {
             dateApplied: res.data.dateApplied,
             status: res.data.status,
             userId: state.currentUser.id,
-            searchId: res.data.searchId,
+            searchId: res.data.Search.searchName,
           },
         });
-        setRedirect(true);
+      })
+      .catch((err) => console.log(err));
+  }
+  function editApp(id) {
+    API.editApp({
+      id: state.selectedApp.id,
+      companyName: companyRef.current.value,
+      role: roleRef.current.value,
+      applicationLink: linkRef.current.value,
+      source: sourceRef.current.value,
+      notes: notesRef.current.value,
+      status: statusRef.current.value,
+      jobDescription: state.selectedApp.jobDescription,
+    })
+      .then((res) => {
+        console.log("edit app", res.data);
+        refreshApp(res.data);
       })
       .catch((err) => console.log(err));
   }
@@ -101,13 +110,16 @@ export default function Edit() {
       {state.selectedApp ? (
         <Form>
           <Form.Row>
-            <Form.Label>Search: {state.selectedApp.searchId}</Form.Label>
+            <Form.Label ref={searchRef}>
+              Search: {state.selectedApp.searchId}
+            </Form.Label>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridDate">
               <Form.Label>Date Applied</Form.Label>
               <Form.Control
                 type="date"
+                ref={dateRef}
                 value={state.selectedApp.dateApplied}
                 readOnly
               />
@@ -152,6 +164,7 @@ export default function Edit() {
               <Form.Control
                 type="text"
                 defaultValue={state.selectedApp.jobDescription}
+                ref={fileRef}
                 readOnly
               ></Form.Control>
             </Form.Group>
@@ -172,8 +185,8 @@ export default function Edit() {
               </Form.Label>
               <Form.Control
                 as="select"
-                defaultValue={state.selectedApp.status}
                 ref={statusRef}
+                defaultValue={state.selectedApp.status}
               >
                 <option>Applied</option>
                 <option>Inprogess</option>

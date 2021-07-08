@@ -118,7 +118,11 @@ a:hover {
   margin-top: 20px;
   height: 100%;
 }
-
+.search-item:hover {
+  background-color: lightgrey;
+  color: #48639c;
+  cursor: pointer;
+}
 .application-container {
   width: 65% !important;
   float: right;
