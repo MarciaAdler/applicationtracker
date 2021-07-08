@@ -26,7 +26,6 @@ export default function Edit() {
     if (state.selectedApp.id === 0) {
       API.selectApp(url.replace("?", ""))
         .then((res) => {
-          console.log(res.data);
           const selectedapp = {
             id: res.data.id,
             companyName: res.data.companyName,
@@ -53,7 +52,7 @@ export default function Edit() {
       });
     }
   }
-  function refreshApp(id) {
+  function refreshApp() {
     API.refreshSelectedApp(state.selectedApp.id)
       .then((res) => {
         dispatch({
@@ -87,8 +86,7 @@ export default function Edit() {
       jobDescription: state.selectedApp.jobDescription,
     })
       .then((res) => {
-        console.log("edit app", res.data);
-        refreshApp(res.data);
+        refreshApp();
       })
       .catch((err) => console.log(err));
   }
@@ -187,6 +185,7 @@ export default function Edit() {
                 ref={statusRef}
                 defaultValue={state.selectedApp.status}
               >
+                <option>{state.selectedApp.status}</option>
                 <option>Applied</option>
                 <option>Inprogess</option>
                 <option>Declined</option>
