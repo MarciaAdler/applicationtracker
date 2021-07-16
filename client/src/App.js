@@ -36,7 +36,7 @@ function App() {
           </Switch>
         </Router>
       </StoreProvider>
-      <SideNavQuotes />
+
       <Footer />
     </div>
   );

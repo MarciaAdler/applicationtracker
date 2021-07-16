@@ -5,6 +5,7 @@ import { useStoreContext } from "../utils/GlobalState";
 import API from "../utils/API";
 import { Redirect } from "react-router-dom";
 import image from "../images/applicationimg.jpeg";
+import dateFormat from "dateformat";
 export default function Home() {
   const [state, dispatch] = useStoreContext();
   const [redirect, setRedirect] = useState(false);
@@ -171,6 +172,18 @@ export default function Home() {
                     >
                       <strong>Edit</strong>
                     </Button>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <span className="application-updatedate">
+                      Last Updated:{" "}
+                      {dateFormat(
+                        `${app.updatedAt}`,
+                        "dddd, mmmm, dS, yyyy, h:MM TT"
+                      )}{" "}
+                      {"EST"}{" "}
+                    </span>
                   </Col>
                 </Row>
               </ListGroup.Item>

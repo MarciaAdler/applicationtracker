@@ -3,6 +3,7 @@ import { Nav } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
 import { Redirect } from "react-router-dom";
 import { CLEAR_ALL } from "../utils/actions";
+import SideNavQuotes from "./SideNavQuotes";
 export default function SideNav() {
   const [state, dispatch] = useStoreContext();
   const [redirect, setRedirect] = useState(false);
@@ -58,6 +59,7 @@ export default function SideNav() {
           </Nav>
         )}
       </div>
+      <SideNavQuotes />
     </div>
   );
 }
