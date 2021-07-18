@@ -31,4 +31,7 @@ router.route("/api/getsearchapps/:id").get(usersController.getSearchApps);
 
 router.route("/api/refreshapp/:id").get(usersController.refreshSelectedApp);
 
+router
+  .route("/api/inactivesearches/:id")
+  .get(usersController.getInactiveSearches);
 module.exports = router;

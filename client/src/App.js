@@ -16,6 +16,7 @@ import Edit from "./Pages/Edit";
 import Applications from "./Pages/Applications";
 import AddSearches from "./Pages/AddSearches";
 import SearchApps from "./Pages/SearchApps";
+import Analytics from "./Pages/Analytics";
 function App() {
   return (
     <div className="App">
@@ -33,6 +34,7 @@ function App() {
             <Route path="/edit" component={Edit} />
             <Route path="/resources" component={Resources} />
             <Route path="/searchapps" component={SearchApps} />
+            <Route path="/analytics" component={Analytics} />
           </Switch>
         </Router>
       </StoreProvider>

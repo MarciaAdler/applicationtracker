@@ -122,6 +122,7 @@ module.exports = {
     db.Search.findAll({
       where: {
         UserId: req.params.id,
+        active: true,
       },
       order: [["createdAt", "DESC"]],
     })
@@ -183,6 +184,19 @@ module.exports = {
           as: "Search",
         },
       ],
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
+  getInactiveSearches: function (req, res) {
+    db.Search.findAll({
+      where: {
+        UserId: req.params.id,
+        active: false,
+      },
+      order: [["createdAt", "DESC"]],
     })
       .then((dbModel) => res.json(dbModel))
       .catch(function (err) {

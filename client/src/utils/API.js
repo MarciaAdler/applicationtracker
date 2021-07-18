@@ -46,4 +46,7 @@ export default {
   refreshSelectedApp: function (app) {
     return axios.get("/api/refreshapp/" + app);
   },
+  getInactiveSearches: function (user) {
+    return axios.get("/api/inactivesearches/" + user);
+  },
 };

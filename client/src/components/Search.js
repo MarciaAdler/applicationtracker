@@ -29,11 +29,13 @@ export default function Search() {
         selectedsearch: {
           id: res.data.id,
           searchName: res.data.searchName,
+          active: res.data.active,
         },
       });
       let localStorageSelectedSearch = {
         id: res.data.id,
         searchName: res.data.searchName,
+        active: res.data.active,
       };
       window.localStorage.setItem(
         "selectedSearch",

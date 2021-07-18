@@ -66,6 +66,7 @@ const reducer = (state, action) => {
         selectedsearch: {
           id: action.selectedsearch.id,
           searchName: action.selectedsearch.searchName,
+          active: action.selectedsearch.active,
         },
       };
     case CLEAR_ALL:
@@ -96,6 +97,7 @@ const reducer = (state, action) => {
         selectedsearch: {
           id: 0,
           name: "",
+          active: "",
         },
       };
     default:
@@ -131,6 +133,7 @@ const StoreProvider = ({ value = [], ...props }) => {
     selectedsearch: {
       id: 0,
       name: "",
+      active: "",
     },
   });
   return <Provider value={[state, dispatch]} {...props} />;

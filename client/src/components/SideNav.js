@@ -29,7 +29,7 @@ export default function SideNav() {
         {state.loggedIn && state.currentUser.id !== 0 ? (
           <Nav className="side-nav-nav">
             <Nav.Link className="side-nav-link" href="/">
-              Home
+              Home/Searches
             </Nav.Link>
             <Nav.Link className="side-nav-link" href="/applications">
               Applications
@@ -37,7 +37,7 @@ export default function SideNav() {
             <Nav.Link className="side-nav-link" href="/add">
               Add Application
             </Nav.Link>
-            <Nav.Link className="side-nav-link" href="#/Analytics">
+            <Nav.Link className="side-nav-link" href="/analytics">
               Analytics
             </Nav.Link>
             <Nav.Link className="side-nav-link" href="/resources">

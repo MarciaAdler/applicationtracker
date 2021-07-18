@@ -4,6 +4,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
+    active: { type: DataTypes.BOOLEAN, defaultValue: true },
   });
   Search.associate = function (models) {
     Search.hasMany(models.Application, {

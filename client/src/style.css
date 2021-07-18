@@ -39,6 +39,7 @@ a:hover {
   margin-left: 0;
   float: left;
   padding-bottom: 50px;
+  margin-right: 10px;
 }
 .side-nav-color {
   background-color: #97abb1;
@@ -168,6 +169,10 @@ a:hover {
 .noapp-text {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.analytics-card {
+  margin: 10px;
 }
 /* @media only screen and (min-width: 768) {
   #signup-container {
