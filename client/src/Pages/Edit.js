@@ -187,7 +187,7 @@ export default function Edit() {
               >
                 <option>{state.selectedApp.status}</option>
                 <option>Applied</option>
-                <option>Inprogess</option>
+                <option>Inprogress</option>
                 <option>Declined</option>
               </Form.Control>
             </Form.Group>

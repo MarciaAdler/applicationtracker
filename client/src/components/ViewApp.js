@@ -82,7 +82,7 @@ export default function Home() {
     }
   };
   return (
-    <div className="home-container">
+    <div className="home-filler">
       <ListGroup id="home-table">
         {state.apps.length > 0 ? (
           state.apps.map((app) => {

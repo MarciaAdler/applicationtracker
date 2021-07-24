@@ -39,7 +39,6 @@ a:hover {
   margin-left: 0;
   float: left;
   padding-bottom: 50px;
-  margin-right: 10px;
 }
 .side-nav-color {
   background-color: #97abb1;
@@ -99,6 +98,10 @@ a:hover {
 #footer-title {
   margin: auto;
   width: 100vw;
+}
+.home-container {
+  height: 100%;
+  margin-left: 10px;
 }
 .home-filler {
   height: 100%;
@@ -188,6 +191,10 @@ a:hover {
     width: 100% !important;
     margin-top: 0;
     min-height: auto;
+  }
+  .home-container {
+    height: 100%;
+    margin-left: 0px;
   }
   #home-table {
     width: 100%;

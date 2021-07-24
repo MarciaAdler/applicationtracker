@@ -7,9 +7,7 @@ import ViewApp from "../components/ViewApp";
 export default function Applications() {
   return (
     <div className="home-container">
-      <div className="home-filler">
-        <ViewApp />
-      </div>
+      <ViewApp />
     </div>
   );
 }
