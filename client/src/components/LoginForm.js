@@ -29,6 +29,16 @@ export default function LoginForm() {
             firstName: results.data.firstName,
             lastName: results.data.lastName,
             email: results.data.email,
+            role: results.data.role,
+            location: results.data.location,
+            primaryRole: results.data.primaryRole,
+            bio: results.data.bio,
+            website: results.data.website,
+            linkedIn: results.data.linkedIn,
+            twitter: results.data.twitter,
+            instagram: results.data.instagram,
+            otherLink: results.data.otherLink,
+            yearsExperience: results.data.yearsExperience,
           },
         });
 
@@ -38,6 +48,15 @@ export default function LoginForm() {
           firstName: results.data.firstName,
           lastName: results.data.lastName,
           email: results.data.email,
+          location: results.data.location,
+          primaryRole: results.data.primaryRole,
+          bio: results.data.bio,
+          website: results.data.website,
+          linkedIn: results.data.linkedIn,
+          twitter: results.data.twitter,
+          instagram: results.data.instagram,
+          otherLink: results.data.otherLink,
+          yearsExperience: results.data.yearsExperience,
         };
 
         window.localStorage.setItem(

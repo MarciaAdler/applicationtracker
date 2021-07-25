@@ -96,6 +96,28 @@ a:hover {
   width: 80%;
   margin-top: 10px;
 }
+
+.editprofile-social {
+  margin-top: 10px;
+}
+.editprofile-row {
+  justify-content: center;
+}
+.editprofile-experience {
+  margin-top: 10px;
+}
+.profile-container {
+  width: 70%;
+  float: right;
+  margin-top: 20px;
+  margin-right: 50px;
+
+  height: 100%;
+}
+.profile-section {
+  border: 1px solid black;
+  padding: 10px;
+}
 #loginform-reset {
   margin-left: 10px;
   margin-top: 15px;
@@ -242,6 +264,13 @@ a:hover {
     margin-top: 20px;
     width: 90% !important;
   }
+  .profile-container {
+    max-width: 100%;
+    float: none;
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+  }
   .resources-container {
     width: 80%;
     float: none;
@@ -266,5 +295,13 @@ a:hover {
   .profile-edit {
     float: none;
     justify-content: center;
+  }
+  .editprofile-col {
+    width: 80%;
+    margin-top: 10px;
+  }
+  .editprofile-social {
+    width: 80%;
+    margin-top: 10px;
   }
 }

@@ -49,6 +49,33 @@ module.exports = function (sequelize, DataTypes) {
       file: {
         type: DataTypes.STRING,
       },
+      location: {
+        type: DataTypes.STRING,
+      },
+      primaryRole: {
+        type: DataTypes.STRING,
+      },
+      bio: {
+        type: DataTypes.TEXT,
+      },
+      website: {
+        type: DataTypes.STRING,
+      },
+      linkedIn: {
+        type: DataTypes.STRING,
+      },
+      twitter: {
+        type: DataTypes.STRING,
+      },
+      instagram: {
+        type: DataTypes.STRING,
+      },
+      otherLink: {
+        type: DataTypes.STRING,
+      },
+      yearsExperience: {
+        type: DataTypes.DECIMAL,
+      },
     },
     {}
   );
