@@ -83,6 +83,11 @@ a:hover {
   padding-right: 10px;
   padding-left: 10px;
 }
+.editapp-button:hover {
+  background-color: #97abb1;
+  border-color: #97abb1;
+  color: black;
+}
 #loginform-reset {
   margin-left: 10px;
   margin-top: 15px;
@@ -105,6 +110,7 @@ a:hover {
 }
 .home-filler {
   height: 100%;
+  margin-left: 10px;
 }
 #home-table {
   width: 75%;
@@ -183,6 +189,11 @@ a:hover {
     float: none;
   }
 } */
+
+.profile-edit {
+  float: right;
+  margin-right: 20px;
+}
 @media only screen and (max-width: 576px) {
   .side-nav-container {
     float: none;
@@ -239,5 +250,13 @@ a:hover {
   }
   #loginform-reset {
     margin-top: 8px;
+  }
+  #profile-headerdiv {
+    justify-content: center;
+    text-align: center;
+  }
+  .profile-edit {
+    float: none;
+    justify-content: center;
   }
 }

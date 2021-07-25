@@ -17,6 +17,7 @@ import Applications from "./Pages/Applications";
 import AddSearches from "./Pages/AddSearches";
 import SearchApps from "./Pages/SearchApps";
 import Analytics from "./Pages/Analytics";
+import Profile from "./Pages/Profile";
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Login} />
             <Route path="/home" component={Home} />
+            <Route path="/profile" component={Profile} />
             <Route path="/applications" component={Applications} />
             <Route path="/signup" component={Signup} />
             <Route path="/add" component={Add} />
