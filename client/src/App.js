@@ -18,6 +18,7 @@ import AddSearches from "./Pages/AddSearches";
 import SearchApps from "./Pages/SearchApps";
 import Analytics from "./Pages/Analytics";
 import Profile from "./Pages/Profile";
+import EditProfile from "./Pages/EditProfile";
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,7 @@ function App() {
             <Route path="/add" component={Add} />
             <Route path="/addsearch" component={AddSearches} />
             <Route path="/edit" component={Edit} />
+            <Route path="/editprofile" component={EditProfile} />
             <Route path="/resources" component={Resources} />
             <Route path="/searchapps" component={SearchApps} />
             <Route path="/analytics" component={Analytics} />
