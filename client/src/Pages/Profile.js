@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
 import { Redirect } from "react-router-dom";
 
@@ -40,10 +40,60 @@ export default function Profile() {
         </div>
         <div>
           <div className="application-container">
-            <h6>
-              Name: {state.currentUser.firstName} {state.currentUser.lastName}
-            </h6>
-            <p>Email: &nbsp;{state.currentUser.email}</p>
+            <div className="profile-section">
+              <h5 className="text-center">
+                <strong>About Me</strong>
+              </h5>
+              <p>
+                <strong>Name: </strong>
+                {state.currentUser.firstName} {state.currentUser.lastName}
+              </p>
+              <p>
+                <strong>Email: </strong>&nbsp;{state.currentUser.email}
+              </p>
+              <p>
+                <strong>Location:</strong> &nbsp; {state.currentUser.location}
+              </p>
+
+              <Row className="profile-row">
+                <Col>
+                  <strong>Primary Role: </strong>
+                  {state.currentUser.primaryRole}
+                </Col>
+                <Col>
+                  <strong>Years Experience: </strong>
+                  {state.currentUser.yearsExperience}
+                </Col>
+              </Row>
+              <p>
+                <strong>Bio: </strong>
+                {state.currentUser.bio}
+              </p>
+              <hr />
+              <h5 className="text-center">
+                <strong>Social Links</strong>
+              </h5>
+              <p>
+                <strong>Website: </strong>
+                {state.currentUser.website}
+              </p>
+              <p>
+                <strong>LinkedIn: </strong>
+                {state.currentUser.linkedIn}
+              </p>
+              <p>
+                <strong>Twitter: </strong>
+                {state.currentUser.twitter}
+              </p>
+              <p>
+                <strong>Instagram: </strong>
+                {state.currentUser.instagram}
+              </p>
+              <p>
+                <strong>OtherLink: </strong>
+                {state.currentUser.otherLink}
+              </p>
+            </div>
           </div>
         </div>
       </div>
