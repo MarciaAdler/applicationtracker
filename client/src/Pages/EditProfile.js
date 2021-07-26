@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
+import { SET_CURRENT_USER } from "../utils/actions";
 export default function EditProfile() {
   const [state, dispatch] = useStoreContext();
   const [message, setMessage] = useState("");
@@ -34,10 +35,55 @@ export default function EditProfile() {
       twitter: twitterRef.current.value,
       instagram: instagramRef.current.value,
       otherLink: otherRef.current.value,
-    }).then((res) => {
-      API.getUser();
-      setMessage("success");
-    });
+    })
+      .then((res) => {
+        API.getMyInfo({ id: state.currentUser.id }).then((results) => {
+          dispatch({
+            type: SET_CURRENT_USER,
+            currentUser: {
+              id: results.data.id,
+              username: results.data.username,
+              firstName: results.data.firstName,
+              lastName: results.data.lastName,
+              email: results.data.email,
+              role: results.data.role,
+              location: results.data.location,
+              primaryRole: results.data.primaryRole,
+              bio: results.data.bio,
+              website: results.data.website,
+              linkedIn: results.data.linkedIn,
+              twitter: results.data.twitter,
+              instagram: results.data.instagram,
+              otherLink: results.data.otherLink,
+              yearsExperience: results.data.yearsExperience,
+            },
+          });
+          let localStorageUser = {
+            id: results.data.id,
+            username: results.data.username,
+            firstName: results.data.firstName,
+            lastName: results.data.lastName,
+            email: results.data.email,
+            role: results.data.role,
+            location: results.data.location,
+            primaryRole: results.data.primaryRole,
+            bio: results.data.bio,
+            website: results.data.website,
+            linkedIn: results.data.linkedIn,
+            twitter: results.data.twitter,
+            instagram: results.data.instagram,
+            otherLink: results.data.otherLink,
+            yearsExperience: results.data.yearsExperience,
+          };
+
+          window.localStorage.setItem(
+            "currentUser",
+            JSON.stringify(localStorageUser)
+          );
+          setMessage("success");
+        });
+      })
+      .catch((err) => console.log(err));
   }
   return (
     <div className="home-container">

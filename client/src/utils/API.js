@@ -55,6 +55,6 @@ export default {
   },
   getMyInfo: function (req) {
     console.log(req);
-    return axios.get("/api/getmyinfo/" + req);
+    return axios.get("/api/getmyinfo/" + req.id);
   },
 };

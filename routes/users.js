@@ -36,4 +36,6 @@ router
   .get(usersController.getInactiveSearches);
 
 router.route("/api/updateuser").put(usersController.updateUser);
+
+router.route("/api/getmyinfo/:id").get(usersController.getMyInfo);
 module.exports = router;
