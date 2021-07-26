@@ -49,4 +49,12 @@ export default {
   getInactiveSearches: function (user) {
     return axios.get("/api/inactivesearches/" + user);
   },
+  updateUser: function (user) {
+    console.log(user);
+    return axios.put("/api/updateuser", user);
+  },
+  getMyInfo: function (req) {
+    console.log(req);
+    return axios.get("/api/getmyinfo/" + req);
+  },
 };

@@ -34,4 +34,6 @@ router.route("/api/refreshapp/:id").get(usersController.refreshSelectedApp);
 router
   .route("/api/inactivesearches/:id")
   .get(usersController.getInactiveSearches);
+
+router.route("/api/updateuser").put(usersController.updateUser);
 module.exports = router;

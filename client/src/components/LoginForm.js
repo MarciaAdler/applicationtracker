@@ -48,6 +48,7 @@ export default function LoginForm() {
           firstName: results.data.firstName,
           lastName: results.data.lastName,
           email: results.data.email,
+          role: results.data.role,
           location: results.data.location,
           primaryRole: results.data.primaryRole,
           bio: results.data.bio,

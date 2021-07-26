@@ -1,8 +1,44 @@
-import React from "react";
-import { Form, Row, Col } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import { Form, Row, Col, Button } from "react-bootstrap";
+import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 export default function EditProfile() {
   const [state, dispatch] = useStoreContext();
+  const [message, setMessage] = useState("");
+  const firstRef = useRef();
+  const lastRef = useRef();
+  const emailRef = useRef();
+  const locationRef = useRef();
+  const primaryRef = useRef();
+  const yearsexRef = useRef();
+  const bioRef = useRef();
+  const websiteRef = useRef();
+  const linkedinRef = useRef();
+  const twitterRef = useRef();
+  const instagramRef = useRef();
+  const otherRef = useRef();
+
+  function updateUser() {
+    API.updateUser({
+      id: state.currentUser.id,
+      username: state.currentUser.username,
+      firstName: firstRef.current.value,
+      lastName: lastRef.current.value,
+      email: emailRef.current.value,
+      location: locationRef.current.value,
+      primaryRole: primaryRef.current.value,
+      yearsExperience: yearsexRef.current.value,
+      bio: bioRef.current.value,
+      website: websiteRef.current.value,
+      linkedIn: linkedinRef.current.value,
+      twitter: twitterRef.current.value,
+      instagram: instagramRef.current.value,
+      otherLink: otherRef.current.value,
+    }).then((res) => {
+      API.getUser();
+      setMessage("success");
+    });
+  }
   return (
     <div className="home-container">
       <div className="home-filler">
@@ -24,6 +60,7 @@ export default function EditProfile() {
                 <Form.Control
                   type="text"
                   defaultValue={`${state.currentUser.firstName}`}
+                  ref={firstRef}
                 />
               </Col>
               <Col className="col-12 col-md-6 col-lg-4 editprofile-col">
@@ -31,6 +68,7 @@ export default function EditProfile() {
                 <Form.Control
                   type="text"
                   defaultValue={`${state.currentUser.lastName}`}
+                  ref={lastRef}
                 />
               </Col>
             </Row>
@@ -40,6 +78,7 @@ export default function EditProfile() {
                 <Form.Control
                   type="text"
                   defaultValue={state.currentUser.email}
+                  ref={emailRef}
                 />
               </Col>
             </Row>
@@ -49,15 +88,17 @@ export default function EditProfile() {
                 <Form.Control
                   type="text"
                   defaultValue={state.currentUser.location}
+                  ref={locationRef}
                 />
               </Col>
             </Row>
             <Row className="editprofile-row">
-              <Col className="col-12 col-md-9 col-lg-8 editprofile-col">
+              <Col className="col-12 col-md-9 col-lg-8 editprofile-role">
                 <Form.Label>Primary Role</Form.Label>
                 <Form.Control
                   type="text"
                   defaultValue={state.currentUser.primaryRole}
+                  ref={primaryRef}
                 />
               </Col>
               <Col className="col-12 col-md-3 col-lg-4 editprofile-social">
@@ -65,6 +106,7 @@ export default function EditProfile() {
                 <Form.Control
                   type="text"
                   defaultValue={state.currentUser.yearsExperience}
+                  ref={yearsexRef}
                 />
               </Col>
             </Row>
@@ -75,6 +117,7 @@ export default function EditProfile() {
                   as="textarea"
                   rows={3}
                   defaultValue={state.currentUser.bio}
+                  ref={bioRef}
                 />
               </Col>
             </Row>
@@ -87,6 +130,7 @@ export default function EditProfile() {
                 <Form.Control
                   type="link"
                   defaultValue={state.currentUser.website}
+                  ref={websiteRef}
                 />
               </Col>
             </Row>
@@ -96,6 +140,7 @@ export default function EditProfile() {
                 <Form.Control
                   type="text"
                   defaultValue={state.currentUser.linkedIn}
+                  ref={linkedinRef}
                 />
               </Col>
             </Row>
@@ -105,6 +150,7 @@ export default function EditProfile() {
                 <Form.Control
                   type="text"
                   defaultValue={state.currentUser.twitter}
+                  ref={twitterRef}
                 />
               </Col>
             </Row>
@@ -114,6 +160,7 @@ export default function EditProfile() {
                 <Form.Control
                   type="text"
                   defaultValue={state.currentUser.instagram}
+                  ref={instagramRef}
                 />
               </Col>
             </Row>
@@ -123,9 +170,21 @@ export default function EditProfile() {
                 <Form.Control
                   type="text"
                   defaultValue={state.currentUser.otherLink}
+                  ref={otherRef}
                 />
               </Col>
             </Row>
+          </div>
+          <div className="text-center">
+            {message}
+            <Button
+              className="editprofile-button"
+              onClick={() => {
+                updateUser();
+              }}
+            >
+              Update Profile
+            </Button>
           </div>
         </Form>
       </div>

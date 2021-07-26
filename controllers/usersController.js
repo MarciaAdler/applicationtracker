@@ -203,4 +203,29 @@ module.exports = {
         res.status(401).json(err);
       });
   },
+  updateUser: function (req, res) {
+    db.User.update(
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        location: req.body.location,
+        primaryRole: req.body.primaryRole,
+        bio: req.body.bio,
+        website: req.body.website,
+        linkedIn: req.body.linkedIn,
+        twitter: req.body.twitter,
+        instagram: req.body.instagram,
+        otherLink: req.body.otherLink,
+        yearsExperience: req.body.yearsExperience,
+      },
+      {
+        where: { id: req.body.id },
+      }
+    )
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
 };

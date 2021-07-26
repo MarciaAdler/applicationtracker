@@ -88,6 +88,16 @@ a:hover {
   border-color: #97abb1;
   color: black;
 }
+.editprofile-button {
+  margin-top: 10px;
+  background-color: #48639c;
+  border-color: #48639c;
+}
+.editprofile-button:hover {
+  background-color: #97abb1;
+  border-color: #97abb1;
+  color: black;
+}
 .editprofile-col {
   width: 40%;
   margin-top: 10px;
@@ -96,7 +106,10 @@ a:hover {
   width: 80%;
   margin-top: 10px;
 }
-
+.editprofile-role {
+  width: 40%;
+  margin-top: 10px;
+}
 .editprofile-social {
   margin-top: 10px;
 }
@@ -297,6 +310,10 @@ a:hover {
     justify-content: center;
   }
   .editprofile-col {
+    width: 80%;
+    margin-top: 10px;
+  }
+  .editprofile-role {
     width: 80%;
     margin-top: 10px;
   }
