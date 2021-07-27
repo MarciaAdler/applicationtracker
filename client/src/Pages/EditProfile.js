@@ -80,10 +80,13 @@ export default function EditProfile() {
             "currentUser",
             JSON.stringify(localStorageUser)
           );
-          setMessage("success");
+          setMessage("Your Profile has been updated successfully");
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setMessage("Something went wrong. Please try again.");
+      });
   }
   return (
     <div className="home-container">
@@ -222,7 +225,7 @@ export default function EditProfile() {
             </Row>
           </div>
           <div className="text-center">
-            {message}
+            <p className="mt-2">{message}</p>
             <Button
               className="editprofile-button"
               onClick={() => {

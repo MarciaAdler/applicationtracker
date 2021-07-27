@@ -93,7 +93,7 @@ a:hover {
   color: black;
 }
 .editprofile-button {
-  margin-top: 10px;
+  margin-top: 5px;
   background-color: #48639c;
   border-color: #48639c;
 }
@@ -301,6 +301,7 @@ a:hover {
   }
   .home-filler {
     height: 100%;
+    margin-left: 0;
   }
   #loginform-reset {
     margin-top: 8px;

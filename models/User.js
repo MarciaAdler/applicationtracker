@@ -74,7 +74,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
       },
       yearsExperience: {
-        type: DataTypes.DECIMAL(10, 2),
+        type: DataTypes.DECIMAL(10, 1),
         defaultValue: 0,
       },
     },
