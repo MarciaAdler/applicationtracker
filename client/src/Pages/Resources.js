@@ -85,6 +85,11 @@ export default function Resources() {
             RemoteWoman.com
           </a>
         </ListGroup.Item>
+        <ListGroup.Item>
+          <a href="https://jobs.girlboss.com/" target="_blank" rel="noreferrer">
+            Girlboss Job Board
+          </a>
+        </ListGroup.Item>
       </ListGroup>
       <h6 className="mt-2">Tech Job Seekers</h6>
       <ListGroup className="resources-listgroup">
