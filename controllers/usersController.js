@@ -11,8 +11,9 @@ module.exports = {
       lastName: req.body.lastName,
       email: req.body.email,
       username: req.body.username,
-
+      role: req.body.role,
       password: req.body.password,
+      company: req.body.company,
     })
       .then(function () {
         res.json(req.body);

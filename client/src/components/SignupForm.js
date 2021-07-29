@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Container, Form, Col, Button } from "react-bootstrap";
+import { Container, Form, Col, Button, Row } from "react-bootstrap";
 import API from "../utils/API";
 import { Redirect } from "react-router-dom";
 import { useStoreContext } from "../utils/GlobalState";
@@ -10,11 +10,11 @@ export default function SignupForm() {
   const firstRef = useRef();
   const lastRef = useRef();
   const nameRef = useRef();
-
+  const usertypeRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmRef = useRef();
-
+  const companyRef = useRef();
   const renderRedirect = () => {
     if (sendLogin && state.currentUser.id === 0) {
       return <Redirect to="/" />;
@@ -31,6 +31,8 @@ export default function SignupForm() {
         email: emailRef.current.value,
         username: nameRef.current.value,
         password: passwordRef.current.value,
+        role: usertypeRef.current.value,
+        company: companyRef.current.value,
       })
         .then((res) => {
           setSendLogin(true);
@@ -43,7 +45,7 @@ export default function SignupForm() {
   return (
     <Container className="signup-container">
       <Form className="signup-form" id="myForm">
-        <Form.Row className="mb-3 justify-content-center">
+        <Row className="mb-3 justify-content-center">
           <Col className="col-8 col-md-4">
             <Form.Label>First Name</Form.Label>
             <Form.Control
@@ -62,8 +64,8 @@ export default function SignupForm() {
               ref={lastRef}
             />
           </Col>
-        </Form.Row>
-        <Form.Row className="justify-content-center">
+        </Row>
+        <Row className="mb-3 justify-content-center">
           <Col className="col-8 col-md-4">
             <Form.Group controlId="formGroupUsername">
               <Form.Label>Username</Form.Label>
@@ -75,8 +77,29 @@ export default function SignupForm() {
               />
             </Form.Group>
           </Col>
-        </Form.Row>
-        <Form.Row className="justify-content-center">
+          <Col className="col-8 col-md-4">
+            <Form.Group controlId="formGroupUsername">
+              <Form.Label>User Type(select one)</Form.Label>
+              <Form.Control as="select" required ref={usertypeRef}>
+                <option>Job Seeker</option>
+                <option>Company/Recruiter</option>
+              </Form.Control>
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row className="mb-3 justify-content-center">
+          <Col className="col-8 col-md-4">
+            <Form.Group controlId="formGroupUsername">
+              <Form.Label>For Company/Recruiter</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter company"
+                ref={companyRef}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row className="justify-content-center">
           {/* <Col className="col-8 col-md-8 col-lg-3">
             <Form.Group controlId="formGroupRole">
               <Form.Label>Role</Form.Label>
@@ -105,8 +128,8 @@ export default function SignupForm() {
               />
             </Form.Group>
           </Col>
-        </Form.Row>
-        <Form.Row className="justify-content-center signupform--row">
+        </Row>
+        <Row className="justify-content-center signupform--row">
           <Col className="col-8">
             <Form.Group controlId="formGroupPassword">
               <Form.Label>Password</Form.Label>
@@ -118,8 +141,8 @@ export default function SignupForm() {
               />
             </Form.Group>
           </Col>
-        </Form.Row>
-        <Form.Row className="justify-content-center signupform--row">
+        </Row>
+        <Row className="justify-content-center signupform--row">
           <Col className="col-8">
             <Form.Group controlId="formGroupConfirmPassword">
               <Form.Label>Confirm Password</Form.Label>
@@ -131,11 +154,15 @@ export default function SignupForm() {
               />
             </Form.Group>
           </Col>
-        </Form.Row>
+        </Row>
 
-        <Form.Row className="justify-content-center signupform--row">
+        <Row className="justify-content-center signupform--row">
           <Col className="col-8">
-            <Button className="button" type="submit" onClick={signUp}>
+            <Button
+              className="button signup-button"
+              type="submit"
+              onClick={signUp}
+            >
               Submit
             </Button>
 
@@ -148,7 +175,7 @@ export default function SignupForm() {
             </span>
             {renderRedirect()}
           </Col>
-        </Form.Row>
+        </Row>
       </Form>
     </Container>
   );

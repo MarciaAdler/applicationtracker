@@ -67,11 +67,22 @@ a:hover {
   top: 0;
   z-index: 1;
 }
+.button {
+  margin-top: 10px;
+  background-color: #48639c;
+  border-color: #48639c;
+}
+.button:hover {
+  background-color: #97abb1;
+  border-color: #97abb1;
+  color: black;
+}
 .loginform-button {
   margin-top: 10px;
   background-color: #48639c;
   border-color: #48639c;
 }
+
 .editapp-button {
   background-color: #48639c;
   border-color: #48639c;
@@ -168,7 +179,7 @@ a:hover {
   margin-top: 20px;
 }
 .signup-container {
-  width: 65% !important;
+  width: 75% !important;
   float: right;
   margin-top: 20px;
   height: 100%;

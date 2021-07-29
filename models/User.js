@@ -38,14 +38,17 @@ module.exports = function (sequelize, DataTypes) {
       role: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: "User",
+        defaultValue: "Job Seeker",
       },
       active: {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: "active",
       },
-
+      company: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       file: {
         type: DataTypes.STRING,
       },
