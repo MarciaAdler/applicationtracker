@@ -184,6 +184,12 @@ a:hover {
   margin-top: 20px;
   height: 100%;
 }
+.login-container {
+  width: 65% !important;
+  float: right;
+  margin-top: 20px;
+  height: 100%;
+}
 .search-item:hover {
   background-color: lightgrey;
   color: #48639c;
@@ -282,6 +288,10 @@ a:hover {
     width: auto;
   }
   .signup-container {
+    width: 80% !important;
+    float: none;
+  }
+  .login-container {
     width: 80% !important;
     float: none;
   }

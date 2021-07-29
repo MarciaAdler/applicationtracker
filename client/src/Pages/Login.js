@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 export default function Signin() {
   return (
-    <Container className="signup-container">
+    <Container className="login-container">
       <h1 className="signin-title">Application Tracker Login</h1>
       <Row className="signin-container">
         <Col className="col-12 col-md-8 signin-container">
@@ -23,7 +23,7 @@ export default function Signin() {
             <p className="ml-2">
               <strong>Usernames:</strong>
               <br />
-              test
+              User1
             </p>
             <p className="ml-2">
               <strong>Password for test account*:</strong> Test
