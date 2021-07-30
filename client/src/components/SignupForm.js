@@ -7,6 +7,7 @@ import { useStoreContext } from "../utils/GlobalState";
 export default function SignupForm() {
   const [state, dispatch] = useStoreContext();
   const [sendLogin, setSendLogin] = useState(false);
+  const [userType, setUserType] = useState();
   const firstRef = useRef();
   const lastRef = useRef();
   const nameRef = useRef();
@@ -24,6 +25,8 @@ export default function SignupForm() {
     event.preventDefault();
     if (passwordRef.current.value !== confirmRef.current.value) {
       return alert("Passwords must match");
+    } else if (usertypeRef.current.value === "") {
+      return alert("Please select a User Type");
     } else {
       API.createUser({
         firstName: firstRef.current.value,
@@ -42,6 +45,12 @@ export default function SignupForm() {
         .catch((err) => console.log(err));
     }
   }
+  function handleChange(event) {
+    console.log(event.target);
+    let selectElement = event.target;
+    console.log(selectElement.value);
+    setUserType(selectElement.value);
+  }
   return (
     <Container className="signup-container">
       <Form className="signup-form" id="myForm">
@@ -55,7 +64,7 @@ export default function SignupForm() {
               ref={firstRef}
             />
           </Col>
-          <Col className="col-8 col-md-4">
+          <Col className="col-8 col-md-4 signupform-col">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               type="text"
@@ -77,29 +86,41 @@ export default function SignupForm() {
               />
             </Form.Group>
           </Col>
-          <Col className="col-8 col-md-4">
+          <Col className="col-8 col-md-4 signupform-col">
             <Form.Group controlId="formGroupUsername">
               <Form.Label>User Type(select one)</Form.Label>
-              <Form.Control as="select" required ref={usertypeRef}>
+              <Form.Control
+                as="select"
+                required
+                ref={usertypeRef}
+                onChange={handleChange}
+              >
+                <option></option>
                 <option>Job Seeker</option>
                 <option>Company/Recruiter</option>
               </Form.Control>
             </Form.Group>
           </Col>
         </Row>
+        {userType === "Company/Recruiter" ? (
+          <Row className="mb-3 justify-content-center">
+            <Col className="col-8 col-md-4">
+              <Form.Group controlId="formGroupUsername">
+                <Form.Label>
+                  For Company/Recruiter: What company do you represent?
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter company"
+                  ref={companyRef}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+        ) : (
+          ""
+        )}
         <Row className="mb-3 justify-content-center">
-          <Col className="col-8 col-md-4">
-            <Form.Group controlId="formGroupUsername">
-              <Form.Label>For Company/Recruiter</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter company"
-                ref={companyRef}
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
           {/* <Col className="col-8 col-md-8 col-lg-3">
             <Form.Group controlId="formGroupRole">
               <Form.Label>Role</Form.Label>
@@ -129,7 +150,7 @@ export default function SignupForm() {
             </Form.Group>
           </Col>
         </Row>
-        <Row className="justify-content-center signupform--row">
+        <Row className="mb-3 justify-content-center signupform--row">
           <Col className="col-8">
             <Form.Group controlId="formGroupPassword">
               <Form.Label>Password</Form.Label>
@@ -142,7 +163,7 @@ export default function SignupForm() {
             </Form.Group>
           </Col>
         </Row>
-        <Row className="justify-content-center signupform--row">
+        <Row className="mb-3 justify-content-center signupform--row">
           <Col className="col-8">
             <Form.Group controlId="formGroupConfirmPassword">
               <Form.Label>Confirm Password</Form.Label>

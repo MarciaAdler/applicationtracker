@@ -347,4 +347,7 @@ a:hover {
     width: 80%;
     margin-top: 10px;
   }
+  .signupform-col {
+    margin-top: 1rem;
+  }
 }
