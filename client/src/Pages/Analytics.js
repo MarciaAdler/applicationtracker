@@ -81,6 +81,7 @@ export default function Analytics() {
   // }
   return (
     <div className="home-container">
+      <h2 className="mt-2 text-center">Analytics</h2>
       <Row>
         <Col className="col-12 col-md-6 col-lg-4 search-column">
           <Card className="analytics-card">
