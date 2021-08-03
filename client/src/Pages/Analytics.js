@@ -10,7 +10,10 @@ export default function Analytics() {
   const [inactiveCount, setInactiveCount] = useState(0);
   const [appCount, setAppCount] = useState(0);
   const [appliedCount, setAppliedCount] = useState(0);
-  const [inprogressCount, setInprogressCount] = useState(0);
+  const [interview1Count, setInterview1Count] = useState(0);
+  const [interview2Count, setInterview2Count] = useState(0);
+  const [interview3Count, setInterview3Count] = useState(0);
+  const [offerCount, setOfferCount] = useState(0);
   const [declinedCount, setDeclinedCount] = useState(0);
   useEffect(() => {
     if (state.currentUser.id === 0 && localStorage.getItem("currentUser")) {
@@ -52,8 +55,14 @@ export default function Analytics() {
         res.data.forEach((app) => {
           if (app.status === "Applied") {
             setAppliedCount((appliedCount) => appliedCount + 1);
-          } else if (app.status === "Inprogress") {
-            setInprogressCount((inprogressCount) => inprogressCount + 1);
+          } else if (app.status === "Interview - First Round") {
+            setInterview1Count((interview1Count) => interview1Count + 1);
+          } else if (app.status === "Interview - Second Round") {
+            setInterview2Count((interview2Count) => interview2Count + 1);
+          } else if (app.status === "Interview - Third/Final Round") {
+            setInterview3Count((interview3Count) => interview3Count + 1);
+          } else if (app.status === "Offer Received") {
+            setOfferCount((offerCount) => offerCount + 1);
           } else {
             setDeclinedCount((declinedCount) => declinedCount + 1);
           }
@@ -99,7 +108,7 @@ export default function Analytics() {
               <Card.Subtitle className="mb-2 text-muted">
                 Inactive
               </Card.Subtitle>
-              <Card.Text>{inactiveCount}</Card.Text>
+              <Card.Text>{interview1Count}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -133,13 +142,53 @@ export default function Analytics() {
             <Card.Body>
               <Card.Title>Number of Applications</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                Status: Inprogress
+                Status: Interview - First Round
               </Card.Subtitle>
 
-              <Card.Text>{inprogressCount}</Card.Text>
+              <Card.Text>{interview1Count}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
+        <Col className="col-12 col-md-6 col-lg-4 search-column">
+          <Card className="analytics-card">
+            <Card.Body>
+              <Card.Title>Number of Applications</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Status: Interview - Second Round
+              </Card.Subtitle>
+
+              <Card.Text>{interview2Count}</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="col-12 col-md-6 col-lg-4 search-column">
+          <Card className="analytics-card">
+            <Card.Body>
+              <Card.Title>Number of Applications</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Status: Interview - Third/Final Round
+              </Card.Subtitle>
+
+              <Card.Text>{interview3Count}</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col className="col-12 col-md-6 col-lg-4 search-column">
+          <Card className="analytics-card">
+            <Card.Body>
+              <Card.Title>Number of Applications</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Status: Offer Received
+              </Card.Subtitle>
+
+              <Card.Text>{offerCount}</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+      <Row>
         <Col className="col-12 col-md-6 col-lg-4 search-column">
           <Card className="analytics-card">
             <Card.Body>

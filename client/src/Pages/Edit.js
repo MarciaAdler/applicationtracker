@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Container, Form, Col, Button } from "react-bootstrap";
+import { Container, Form, Col, Button, Row } from "react-bootstrap";
 import { SELECT_APP } from "../utils/actions";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
@@ -16,6 +16,7 @@ export default function Edit() {
   const dateRef = useRef();
   const fileRef = useRef();
   const searchRef = useRef();
+  const [message, setMessage] = useState("");
   useEffect(() => {
     loadRequest(window.location.search);
   }, []);
@@ -87,6 +88,10 @@ export default function Edit() {
     })
       .then((res) => {
         refreshApp();
+        setMessage("App Updated");
+        setTimeout(() => {
+          document.getElementById("message").style.display = "none";
+        }, 1000);
       })
       .catch((err) => console.log(err));
   }
@@ -187,20 +192,29 @@ export default function Edit() {
               >
                 <option>{state.selectedApp.status}</option>
                 <option>Applied</option>
-                <option>Inprogress</option>
+                <option>Interview - First Round</option>
+                <option>Interview - Second Round</option>
+                <option>Interview - Third/Final Round</option>
+                <option>Offer Received</option>
                 <option>Declined</option>
               </Form.Control>
             </Form.Group>
           </Form.Row>
-
-          <Button
-            className="mt-3 editapp-button"
-            variant="primary"
-            type="button"
-            onClick={editApp}
-          >
-            Update
-          </Button>
+          <Row className="align-items-center">
+            <Col className="col-2">
+              <Button
+                className="mt-3 editapp-button"
+                variant="primary"
+                type="button"
+                onClick={editApp}
+              >
+                Update
+              </Button>
+            </Col>
+            <Col>
+              <span id="message">{message}</span>
+            </Col>
+          </Row>
         </Form>
       ) : (
         "No App Selected"
