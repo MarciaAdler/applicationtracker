@@ -41,16 +41,28 @@ export default function Home() {
   // }
   return (
     <div className="home-container">
-      <div className="home-filler">
-        {state.searches.length !== 0 ? (
-          <div>
-            <Search />
-          </div>
-        ) : (
-          <h3 className="mt-2">
-            <a href="/addsearch">Add a Search</a> to get started
-          </h3>
-        )}
+      {state.currentUser.role === "Job Seeker" ? (
+        <div className="home-filler">
+          {state.searches.length !== 0 ? (
+            <div>
+              <Search />
+            </div>
+          ) : (
+            <h3 className="mt-2">
+              <a href="/addsearch">Add a Search</a> to get started
+            </h3>
+          )}
+        </div>
+      ) : (
+        ""
+      )}
+
+      <div className="mt-2 text-center resources-container">
+        <h5>
+          If you haven't already created your profile, please click{" "}
+          <a href="/editprofile">here</a> to create it and add additional
+          information.
+        </h5>
       </div>
     </div>
   );
