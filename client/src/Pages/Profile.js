@@ -28,18 +28,19 @@ export default function Profile() {
         <h2 className="text-center mt-2">
           {state.currentUser.username}&nbsp; Profile
         </h2>
-        <div id="profile-headerdiv" className="profile-edit">
-          <Button
-            className="editapp-button"
-            onClick={() => {
-              editProfile();
-            }}
-          >
-            Edit Profile
-          </Button>
-        </div>
+
         <div>
-          <div className="application-container">
+          <div className="profile-container">
+            <div id="profile-headerdiv" className="profile-edit mt-2">
+              <Button
+                className="editapp-button"
+                onClick={() => {
+                  editProfile();
+                }}
+              >
+                Edit Profile
+              </Button>
+            </div>
             <div className="profile-section">
               <h5 className="text-center">
                 <strong>About Me</strong>
