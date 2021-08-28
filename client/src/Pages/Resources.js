@@ -45,6 +45,11 @@ export default function Resources() {
             All Hands Job Board
           </a>
         </ListGroup.Item>
+        <ListGroup.Item>
+          <a href="https://www.themuse.com/" target="_blank" rel="noreferrer">
+            The Muse
+          </a>
+        </ListGroup.Item>
       </ListGroup>
       <h6 className="mt-2">For Women Job Seekers</h6>
       <ListGroup className="resources-listgroup">

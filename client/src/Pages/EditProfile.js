@@ -18,11 +18,12 @@ export default function EditProfile() {
   const twitterRef = useRef();
   const instagramRef = useRef();
   const otherRef = useRef();
+  const usernameRef = useRef();
 
   function updateUser() {
     API.updateUser({
       id: state.currentUser.id,
-      username: state.currentUser.username,
+      username: usernameRef.current.value,
       firstName: firstRef.current.value,
       lastName: lastRef.current.value,
       email: emailRef.current.value,
@@ -122,7 +123,16 @@ export default function EditProfile() {
               </Col>
             </Row>
             <Row className="editprofile-row">
-              <Col className="col-12 editprofile-col2">
+              <Col className="col-12 col-md-6 col-lg-4 editprofile-col">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  defaultValue={state.currentUser.username}
+                  ref={usernameRef}
+                />
+              </Col>
+
+              <Col className="col-12 col-md-6 col-lg-4 editprofile-col">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="text"

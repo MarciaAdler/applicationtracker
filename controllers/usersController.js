@@ -209,6 +209,7 @@ module.exports = {
       {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        username: req.body.username,
         email: req.body.email,
         location: req.body.location,
         primaryRole: req.body.primaryRole,
