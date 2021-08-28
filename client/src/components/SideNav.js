@@ -40,6 +40,9 @@ export default function SideNav() {
             <Nav.Link className="side-nav-link" href="/analytics">
               Analytics
             </Nav.Link>
+            <Nav.Link className="side-nav-link" href="/discussionboard">
+              Discussion Board
+            </Nav.Link>
             <Nav.Link className="side-nav-link" href="/resources">
               Resources
             </Nav.Link>
