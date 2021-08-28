@@ -100,7 +100,7 @@ export default function Analytics() {
             </Card.Body>
           </Card>
         </Col>
-        <Col className="col-12 col-md-6 col-lg-6 search-column">
+        {/* <Col className="col-12 col-md-6 col-lg-6 search-column">
           <Card className="analytics-card">
             <Card.Body>
               <Card.Title>Number of Searches</Card.Title>
@@ -110,7 +110,7 @@ export default function Analytics() {
               <Card.Text>{interview1Count}</Card.Text>
             </Card.Body>
           </Card>
-        </Col>
+        </Col> */}
       </Row>
       <Row>
         <Col className="col-12 col-md-6 col-lg-6 search-column">
