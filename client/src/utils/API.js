@@ -61,4 +61,7 @@ export default {
     console.log(post);
     return axios.post("/api/addpost", post);
   },
+  getPosts: function (req) {
+    return axios.get("/api/getposts");
+  },
 };

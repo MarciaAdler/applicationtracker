@@ -34,7 +34,7 @@ export default function AddPost() {
           <Col className="col-12 editprofile-col2">
             <Form.Label>Add Title Here</Form.Label>
             <Form.Control as="textarea" rows={1} ref={titleRef}></Form.Control>
-            <Form.Label>Add Post Here</Form.Label>
+            <Form.Label className="mt-2">Add Post Here</Form.Label>
             <Form.Control as="textarea" rows={5} ref={postRef} />
           </Col>
         </Row>

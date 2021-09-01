@@ -8,6 +8,7 @@ import {
   SELECT_APP,
   SET_SEARCH,
   SET_SEARCHES,
+  SET_POSTS,
 } from "./actions";
 
 const StoreContext = createContext();
@@ -78,6 +79,11 @@ const reducer = (state, action) => {
           active: action.selectedsearch.active,
         },
       };
+    case SET_POSTS:
+      return {
+        ...state,
+        posts: action.posts,
+      };
     case CLEAR_ALL:
       return {
         currentUser: {
@@ -119,6 +125,7 @@ const reducer = (state, action) => {
           name: "",
           active: "",
         },
+        posts: [],
       };
     default:
       return state;
@@ -166,6 +173,7 @@ const StoreProvider = ({ value = [], ...props }) => {
       name: "",
       active: "",
     },
+    posts: [],
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

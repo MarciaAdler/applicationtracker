@@ -40,4 +40,7 @@ router.route("/api/updateuser").put(usersController.updateUser);
 router.route("/api/getmyinfo/:id").get(usersController.getMyInfo);
 
 router.route("/api/addpost").post(usersController.addPost);
+
+router.route("/api/getposts").get(usersController.getPosts);
+
 module.exports = router;
