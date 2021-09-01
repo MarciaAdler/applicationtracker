@@ -2,11 +2,24 @@ import React, { useRef, useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
+import { SET_POSTS } from "../utils/actions";
 export default function AddPost() {
   const [state, dispatch] = useStoreContext();
   const postRef = useRef("");
   const titleRef = useRef("");
   const [message, setMessage] = useState("");
+  function getPosts() {
+    API.getPosts()
+      .then((res) =>
+        dispatch({
+          type: SET_POSTS,
+          posts: res.data,
+        })
+      )
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   function addPost() {
     API.addPost({
       title: titleRef.current.value,
@@ -21,6 +34,7 @@ export default function AddPost() {
         setTimeout(() => {
           document.getElementById("success-message").style.display = "none";
         }, 1000);
+        getPosts();
       })
       .catch((err) => {
         console.log(err);

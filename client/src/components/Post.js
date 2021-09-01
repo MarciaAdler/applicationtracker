@@ -9,7 +9,7 @@ export default function Posts() {
       {state.posts.length > 0
         ? state.posts.map((post) => {
             return (
-              <Card key={post.id} className="resouces-listitem">
+              <Card key={post.id} className="resouces-listitem mt-3">
                 <Card.Header key={post.id}>
                   <strong>{post.title}</strong>
                 </Card.Header>
