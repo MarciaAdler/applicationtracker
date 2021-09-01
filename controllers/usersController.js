@@ -239,4 +239,16 @@ module.exports = {
         res.status(401).json(err);
       });
   },
+  addPost: function (req, res) {
+    console.log(req.body);
+    db.BlogPost.create({
+      title: req.body.title,
+      post: req.body.post,
+      UserId: req.body.userId,
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
 };
