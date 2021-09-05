@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Card } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
 import dateFormat from "dateformat";
+
 export default function Posts() {
   const [state, dispatch] = useStoreContext();
+  let startpost = "";
+
+  function getsubstring(post) {
+    return post.substring(0, 75);
+  }
+
   return (
     <Container className="resources-container">
       {state.posts.length > 0
@@ -16,8 +23,7 @@ export default function Posts() {
 
                 <Card.Body>
                   <blockquote className="blockquote mb-0">
-                    {post.post}
-
+                    {getsubstring(post.post)}...
                     <footer className="blockquote-footer mt-1">
                       {post.User.username}
                       <br />
@@ -25,8 +31,7 @@ export default function Posts() {
                         {dateFormat(
                           `${post.createdAt}`,
                           "dddd, mmmm, dS, yyyy, h:MM TT"
-                        )}{" "}
-                        {"EST"}
+                        )}
                       </small>
                     </footer>
                   </blockquote>
