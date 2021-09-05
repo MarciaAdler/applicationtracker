@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Card } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
 import dateFormat from "dateformat";
 
 export default function Posts() {
   const [state, dispatch] = useStoreContext();
-  let startpost = "";
 
   function getsubstring(post) {
     return post.substring(0, 75);
