@@ -23,12 +23,14 @@ export default function Posts() {
             id: res.data.id,
             title: res.data.title,
             post: res.data.post,
+            author: res.data.User.username,
           },
         });
         let localStoragePost = {
           id: res.data.id,
           title: res.data.title,
           post: res.data.post,
+          author: res.data.User.username,
         };
         window.localStorage.setItem(
           "selectedPost",

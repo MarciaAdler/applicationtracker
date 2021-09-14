@@ -18,7 +18,8 @@ export default function FullPost() {
       <div className="home-filler">
         <Container className="resources-container mt-3">
           <h4>{state.selectedpost.title}</h4>
-          <pre className="post-text">{state.selectedpost.post}</pre>
+          <h6>posted by: &nbsp;{state.selectedpost.author}</h6>
+          <pre className="post-text mt-3">{state.selectedpost.post}</pre>
         </Container>
       </div>
     </div>
