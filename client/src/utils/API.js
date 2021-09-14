@@ -64,4 +64,7 @@ export default {
   getPosts: function (req) {
     return axios.get("/api/getposts");
   },
+  selectPost: function (post) {
+    return axios.get("/api/selectpost/" + post);
+  },
 };

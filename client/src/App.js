@@ -20,6 +20,7 @@ import Analytics from "./Pages/Analytics";
 import Profile from "./Pages/Profile";
 import EditProfile from "./Pages/EditProfile";
 import DiscussionBoard from "./Pages/DiscussionBoard";
+import ViewDiscussionPost from "./Pages/ViewDiscussionPost";
 function App() {
   return (
     <div className="App">
@@ -41,6 +42,7 @@ function App() {
             <Route path="/searchapps" component={SearchApps} />
             <Route path="/analytics" component={Analytics} />
             <Route path="/discussionboard" component={DiscussionBoard} />
+            <Route path="/viewdiscussion" component={ViewDiscussionPost} />
           </Switch>
         </Router>
       </StoreProvider>

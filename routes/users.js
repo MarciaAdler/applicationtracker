@@ -43,4 +43,6 @@ router.route("/api/addpost").post(usersController.addPost);
 
 router.route("/api/getposts").get(usersController.getPosts);
 
+router.route("/api/selectpost/:id").get(usersController.selectPost);
+
 module.exports = router;

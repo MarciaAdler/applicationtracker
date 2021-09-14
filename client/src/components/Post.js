@@ -1,15 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Card } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
 import dateFormat from "dateformat";
+import { Redirect } from "react-router-dom";
+import API from "../utils/API";
+import { SET_POST } from "../utils/actions";
 
 export default function Posts() {
   const [state, dispatch] = useStoreContext();
+  const [redirect, setRedirect] = useState(false);
 
   function getsubstring(post) {
     return post.substring(0, 75);
   }
 
+  function selectPost(post) {
+    API.selectPost(post)
+      .then((res) => {
+        dispatch({
+          type: SET_POST,
+          selectedpost: {
+            id: res.data.id,
+            title: res.data.title,
+            post: res.data.post,
+          },
+        });
+        let localStoragePost = {
+          id: res.data.id,
+          title: res.data.title,
+          post: res.data.post,
+        };
+        window.localStorage.setItem(
+          "selectedPost",
+          JSON.stringify(localStoragePost)
+        );
+        setRedirect(true);
+      })
+      .catch((err) => console.log(err));
+  }
+  // capturing request id in url
+  const renderRedirect = () => {
+    if (state.selectedpost && redirect) {
+      return (
+        <Redirect
+          push
+          to={{
+            pathname: "/viewdiscussion",
+            search: `?${state.selectedpost.id}`,
+          }}
+        />
+      );
+    }
+  };
   return (
     <Container className="resources-container">
       {state.posts.length > 0
@@ -23,6 +65,13 @@ export default function Posts() {
                 <Card.Body>
                   <blockquote className="blockquote mb-0">
                     {getsubstring(post.post)}...
+                    <span
+                      onClick={() => {
+                        selectPost(post.id);
+                      }}
+                    >
+                      more
+                    </span>
                     <footer className="blockquote-footer mt-1">
                       {post.User.username}
                       <br />
@@ -39,6 +88,7 @@ export default function Posts() {
             );
           })
         : ""}
+      {renderRedirect()}
     </Container>
   );
 }

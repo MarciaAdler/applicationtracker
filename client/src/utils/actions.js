@@ -6,3 +6,4 @@ export const SELECT_APP = "SELECT_APP";
 export const SET_SEARCH = "SET_SEARCH";
 export const SET_SEARCHES = "SET_SEARCHES";
 export const SET_POSTS = "SET_POSTS";
+export const SET_POST = "SET_POST";

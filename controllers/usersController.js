@@ -265,4 +265,21 @@ module.exports = {
         res.status(401).json(err);
       });
   },
+  selectPost: function (req, res) {
+    db.BlogPost.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [
+        {
+          model: db.User,
+          as: "User",
+        },
+      ],
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
 };

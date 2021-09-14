@@ -9,6 +9,7 @@ import {
   SET_SEARCH,
   SET_SEARCHES,
   SET_POSTS,
+  SET_POST,
 } from "./actions";
 
 const StoreContext = createContext();
@@ -84,6 +85,15 @@ const reducer = (state, action) => {
         ...state,
         posts: action.posts,
       };
+    case SET_POST:
+      return {
+        ...state,
+        selectedpost: {
+          id: action.selectedpost.id,
+          title: action.selectedpost.title,
+          post: action.selectedpost.post,
+        },
+      };
     case CLEAR_ALL:
       return {
         currentUser: {
@@ -126,6 +136,11 @@ const reducer = (state, action) => {
           active: "",
         },
         posts: [],
+        selectedpost: {
+          id: 0,
+          title: "",
+          post: "",
+        },
       };
     default:
       return state;
@@ -174,6 +189,11 @@ const StoreProvider = ({ value = [], ...props }) => {
       active: "",
     },
     posts: [],
+    selectedpost: {
+      id: 0,
+      title: "",
+      post: "",
+    },
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };
