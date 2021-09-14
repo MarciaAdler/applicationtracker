@@ -60,7 +60,7 @@ export default function AddPost() {
                 addPost();
               }}
             >
-              Update Profile
+              Submit Post
             </Button>
           </Col>
           <Col>

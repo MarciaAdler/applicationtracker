@@ -93,6 +93,7 @@ const reducer = (state, action) => {
           title: action.selectedpost.title,
           post: action.selectedpost.post,
           author: action.selectedpost.author,
+          createdat: action.selectedpost.createdat,
         },
       };
     case CLEAR_ALL:
@@ -142,6 +143,7 @@ const reducer = (state, action) => {
           title: "",
           post: "",
           author: "",
+          createdat: "",
         },
       };
     default:
@@ -196,6 +198,7 @@ const StoreProvider = ({ value = [], ...props }) => {
       title: "",
       post: "",
       author: "",
+      createdat: "",
     },
   });
   return <Provider value={[state, dispatch]} {...props} />;

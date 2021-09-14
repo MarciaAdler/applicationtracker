@@ -24,6 +24,7 @@ export default function Posts() {
             title: res.data.title,
             post: res.data.post,
             author: res.data.User.username,
+            createdat: res.data.createdAt,
           },
         });
         let localStoragePost = {
@@ -31,6 +32,7 @@ export default function Posts() {
           title: res.data.title,
           post: res.data.post,
           author: res.data.User.username,
+          createdat: res.data.createdAt,
         };
         window.localStorage.setItem(
           "selectedPost",
