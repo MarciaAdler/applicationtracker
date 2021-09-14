@@ -73,8 +73,9 @@ export default function Posts() {
                       onClick={() => {
                         selectPost(post.id);
                       }}
+                      className="post-showmore"
                     >
-                      more
+                      see more
                     </span>
                     <footer className="blockquote-footer mt-1">
                       {post.User.username}

@@ -273,6 +273,13 @@ a:hover {
   white-space: pre-wrap;
   font-family: var(--bs-font-sans-serif);
 }
+.post-showmore {
+  color: #48639c;
+}
+.post-showmore:hover {
+  color: #97abb1;
+  text-decoration: underline;
+}
 @media only screen and (max-width: 721px) {
   .side-nav-container {
     float: none;
