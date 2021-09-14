@@ -271,6 +271,7 @@ a:hover {
 }
 .post-text {
   white-space: pre-wrap;
+  font-family: var(--bs-font-sans-serif);
 }
 @media only screen and (max-width: 721px) {
   .side-nav-container {

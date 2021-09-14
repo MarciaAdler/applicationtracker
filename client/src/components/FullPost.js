@@ -16,7 +16,7 @@ export default function FullPost() {
   return (
     <div className="home-container">
       <div className="home-filler">
-        <Container className="resources-container post-text mt-3">
+        <Container className="resources-container mt-3">
           <h4>{state.selectedpost.title}</h4>
           <pre className="post-text">{state.selectedpost.post}</pre>
         </Container>
