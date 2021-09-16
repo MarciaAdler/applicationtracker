@@ -66,10 +66,10 @@ export default function Profile() {
                   {state.currentUser.yearsExperience}
                 </Col>
               </Row>
-              <p>
+              <pre className="post-text">
                 <strong>Bio: </strong>
                 {state.currentUser.bio}
-              </p>
+              </pre>
               <hr />
               <h5 className="text-center">
                 <strong>Social Links</strong>

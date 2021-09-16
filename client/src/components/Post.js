@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Card } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
 import dateFormat from "dateformat";
