@@ -117,6 +117,20 @@ export default function Resources() {
             Diversify Tech Job Board
           </a>
         </ListGroup.Item>
+        <ListGroup.Item>
+          <a
+            href="https://www.nyctechslack.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            NYC Tech Slack Group
+          </a>
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <a href="https://www.tribaja.co/" target="_blank" rel="noreferrer">
+            Tribaja
+          </a>
+        </ListGroup.Item>
       </ListGroup>
       <h6 className="mt-2">Remote Job Seekers</h6>
       <ListGroup className="resources-listgroup">
