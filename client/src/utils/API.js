@@ -67,4 +67,7 @@ export default {
   selectPost: function (post) {
     return axios.get("/api/selectpost/" + post);
   },
+  postComment: function (comment) {
+    return axios.post("/api/postcomment", comment);
+  },
 };

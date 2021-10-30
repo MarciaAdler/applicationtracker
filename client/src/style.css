@@ -280,6 +280,9 @@ a:hover {
   color: #97abb1;
   text-decoration: underline;
 }
+.comments {
+  border-top: 1px solid black;
+}
 @media only screen and (max-width: 721px) {
   .side-nav-container {
     float: none;
