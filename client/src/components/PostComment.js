@@ -9,9 +9,9 @@ export default function PostComment() {
   const commentRef = useRef("");
   const [message, setMessage] = useState("");
   function addComment() {
-    API.addComment({
+    API.postComment({
       comment: commentRef.current.value,
-      userId: state.currentUser.id,
+      BlogPostId: state.selectedpost.id,
     })
       .then((res) => {
         console.log(res.data);
@@ -29,32 +29,34 @@ export default function PostComment() {
       });
   }
   return (
-    <div>
-      <Form className="profile-container" id="myForm">
-        <Row className="editprofile-row">
-          <Col className="col-12 editprofile-col2">
-            <Form.Label className="mt-2">Add Post Here</Form.Label>
-            <Form.Control as="textarea" rows={5} ref={commentRef} />
-          </Col>
-        </Row>
-        <Row className="mt-2">
-          <Col className="text-center button-col col-4">
-            <Button
-              className="editprofile-button"
-              onClick={() => {
-                addComment();
-              }}
-            >
-              Add Comment
-            </Button>
-          </Col>
-          <Col>
-            <span className="mt-2 message" id="success-message">
-              {message}
-            </span>
-          </Col>
-        </Row>
-      </Form>
-    </div>
+    <Form className="" id="myForm">
+      <Row className="">
+        <Col className="mt-3">
+          <Form.Control
+            as="textarea"
+            rows={5}
+            ref={commentRef}
+            placeholder="Add Comment Here"
+          />
+        </Col>
+      </Row>
+      <Row className="mt-2">
+        <Col className="text-center addcomment-col col-lg-3 col-md-3 col-12">
+          <Button
+            className="addcomment-button"
+            onClick={() => {
+              addComment();
+            }}
+          >
+            Add Comment
+          </Button>
+        </Col>
+        <Col>
+          <span className="mt-2 message" id="success-message">
+            {message}
+          </span>
+        </Col>
+      </Row>
+    </Form>
   );
 }

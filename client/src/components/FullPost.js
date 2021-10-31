@@ -4,6 +4,7 @@ import { SET_POST } from "../utils/actions";
 import { useStoreContext } from "../utils/GlobalState";
 import dateFormat from "dateformat";
 import PostComment from "./PostComment";
+import ViewComment from "./ViewComment";
 export default function FullPost() {
   const [state, dispatch] = useStoreContext();
 
@@ -35,6 +36,7 @@ export default function FullPost() {
           <pre className="post-text mt-3">{state.selectedpost.post}</pre>
           <div className="comments">
             <PostComment />
+            <ViewComment />
           </div>
         </Container>
       </div>

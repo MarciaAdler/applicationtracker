@@ -282,4 +282,14 @@ module.exports = {
         res.status(401).json(err);
       });
   },
+  postComment: function (req, res) {
+    db.Comment.create({
+      comment: req.body.comment,
+      BlogPostId: req.body.BlogPostId,
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
 };
