@@ -3,6 +3,7 @@ import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 import { SET_CURRENT_USER } from "../utils/actions";
+
 export default function EditProfile() {
   const [state, dispatch] = useStoreContext();
   const [message, setMessage] = useState("");
@@ -103,7 +104,12 @@ export default function EditProfile() {
           </div> */}
           {/* </Form.Row> */}
           <div className="profile-section">
-            <h4>About Me</h4>
+            <Row>
+              <Col>
+                <h4>About Me</h4>
+              </Col>
+            </Row>
+
             <Row className="editprofile-row">
               <Col className="col-12 col-md-6 col-lg-4 editprofile-col">
                 <Form.Label>First Name</Form.Label>
