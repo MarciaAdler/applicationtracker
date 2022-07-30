@@ -12,6 +12,7 @@ export default function PostComment() {
     API.postComment({
       comment: commentRef.current.value,
       BlogPostId: state.selectedpost.id,
+      userId: state.currentUser.id,
     })
       .then((res) => {
         console.log(res.data);

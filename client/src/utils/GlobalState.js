@@ -10,6 +10,7 @@ import {
   SET_SEARCHES,
   SET_POSTS,
   SET_POST,
+  SET_COMMENTS,
 } from "./actions";
 
 const StoreContext = createContext();
@@ -96,6 +97,11 @@ const reducer = (state, action) => {
           createdat: action.selectedpost.createdat,
         },
       };
+    case SET_COMMENTS:
+      return {
+        ...state,
+        comments: action.comments,
+      };
     case CLEAR_ALL:
       return {
         currentUser: {
@@ -145,6 +151,7 @@ const reducer = (state, action) => {
           author: "",
           createdat: "",
         },
+        comments: [],
       };
     default:
       return state;
@@ -200,6 +207,7 @@ const StoreProvider = ({ value = [], ...props }) => {
       author: "",
       createdat: "",
     },
+    comments: [],
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

@@ -70,4 +70,7 @@ export default {
   postComment: function (comment) {
     return axios.post("/api/postcomment", comment);
   },
+  getComments: function (post) {
+    return axios.get("/api/getcomments/" + post);
+  },
 };

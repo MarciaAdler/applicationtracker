@@ -46,4 +46,5 @@ router.route("/api/getposts").get(usersController.getPosts);
 router.route("/api/selectpost/:id").get(usersController.selectPost);
 
 router.route("/api/postcomment").post(usersController.postComment);
+router.route("/api/getcomments/:id").get(usersController.getComments);
 module.exports = router;

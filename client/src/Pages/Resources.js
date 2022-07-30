@@ -54,11 +54,7 @@ export default function Resources() {
       <h6 className="mt-2">For Women Job Seekers</h6>
       <ListGroup className="resources-listgroup">
         <ListGroup.Item>
-          <a
-            href="https://fairygodboss.com/community/feed"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://fairygodboss.com/" target="_blank" rel="noreferrer">
             Fairy God Boss
           </a>
         </ListGroup.Item>

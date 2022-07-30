@@ -283,9 +283,30 @@ module.exports = {
       });
   },
   postComment: function (req, res) {
+    console.log(req.body);
     db.Comment.create({
       comment: req.body.comment,
       BlogPostId: req.body.BlogPostId,
+      UserId: req.body.userId,
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
+  getComments: function (req, res) {
+    console.log("getComments", req.params.id);
+    db.Comment.findAll({
+      where: {
+        BlogPostId: req.params.id,
+      },
+      include: [
+        {
+          model: db.User,
+          as: "User",
+        },
+      ],
+      order: [["createdAt", "DESC"]],
     })
       .then((dbModel) => res.json(dbModel))
       .catch(function (err) {

@@ -9,10 +9,11 @@ export default function FullPost() {
   const [state, dispatch] = useStoreContext();
 
   useEffect(() => {
-    if (state.selectedpost.id === 0) {
+    if (state.selectedpost.id === 0 && localStorage.getItem("selectedPost")) {
+      const selectedPostLs = JSON.parse(localStorage.getItem("selectedPost"));
       dispatch({
         type: SET_POST,
-        selectedpost: JSON.parse(localStorage.getItem("selectedPost")),
+        selectedpost: selectedPostLs,
       });
     }
   }, []);
