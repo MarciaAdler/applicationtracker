@@ -30,7 +30,8 @@ export default function ViewComment() {
       .catch((err) => console.log(err));
   }
   return (
-    <Container className="resources-container mt-5">
+    <div className="mt-5">
+      <h5 className="mx-3">Check out these comments</h5>
       <Comment />
       {/* {state.comments.length > 0
         ? state.comments.map((comment) => {
@@ -53,6 +54,6 @@ export default function ViewComment() {
             );
           })
         : ""} */}
-    </Container>
+    </div>
   );
 }
