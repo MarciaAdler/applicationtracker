@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
+import { SET_COMMENTS } from "../utils/actions";
 // import dateFormat from "dateformat";
 
 export default function PostComment() {
@@ -22,12 +23,24 @@ export default function PostComment() {
         setTimeout(() => {
           document.getElementById("success-message").style.display = "none";
         }, 1000);
-        // getPosts();
+        getComments(state.selectedpost.id);
       })
       .catch((err) => {
         console.log(err);
         setMessage("Something went wrong. Please try again.");
       });
+  }
+  function getComments(post) {
+    API.getComments(post)
+      .then((res) => {
+        console.log(res.data);
+        dispatch({
+          type: SET_COMMENTS,
+          comments: res.data,
+        });
+        console.log(state.comments);
+      })
+      .catch((err) => console.log(err));
   }
   return (
     <Form className="" id="myForm">

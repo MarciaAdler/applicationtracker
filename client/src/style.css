@@ -43,6 +43,8 @@ a:hover {
 }
 .side-nav-color {
   background-color: #97abb1;
+  padding-top:30px;
+  padding-bottom: 30px;
 }
 .side-nav-nav {
   flex-direction: column;
@@ -321,7 +323,13 @@ a:hover {
     display: inline-block;
 
     width: auto;
+    
   }
+ 
+   .nav-link:hover {
+    color: white;
+   }   
+  
   .signup-container {
     width: 80% !important;
     float: none;

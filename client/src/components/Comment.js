@@ -8,13 +8,13 @@ import API from "../utils/API";
 export default function Comment() {
   const [state, dispatch] = useStoreContext();
   return (
-    <Container>
+    <div>
       {state.comments.length > 0
         ? state.comments.map((comment) => {
             return (
-              <Card key={comment.id}>
+              <Card key={comment.id} className="mt-2 rounded">
                 <Card.Body>
-                  {comment.comment}
+                  <pre className="post-text">{comment.comment}</pre>
                   <footer className="blockquote-footer mt-1">
                     {comment.User.username}
                     <br />
@@ -30,6 +30,6 @@ export default function Comment() {
             );
           })
         : ""}
-    </Container>
+    </div>
   );
 }

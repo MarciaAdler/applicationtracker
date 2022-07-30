@@ -31,7 +31,7 @@ export default function ViewComment() {
   }
   return (
     <div className="mt-5">
-      <h5 className="mx-3">Check out these comments</h5>
+      <h5 className="mx-2">Comments ({state.comments.length})</h5>
       <Comment />
       {/* {state.comments.length > 0
         ? state.comments.map((comment) => {
