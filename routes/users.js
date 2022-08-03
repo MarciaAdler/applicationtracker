@@ -47,5 +47,7 @@ router.route("/api/selectpost/:id").get(usersController.selectPost);
 
 router.route("/api/postcomment").post(usersController.postComment);
 router.route("/api/getcomments/:id").get(usersController.getComments);
-router.route("/api/changestatus/:id").put(usersController.changeStatus);
+router
+  .route("/api/changestatusinactive")
+  .put(usersController.changeStatusInactive);
 module.exports = router;

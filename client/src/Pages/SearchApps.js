@@ -91,16 +91,30 @@ export default function SearchApps() {
   };
   function markInactive(search) {
     console.log(search);
-    // API.changeStatus(search).then((res) => {
-    //   console.log(res.data);
-    // });
+    if (state.selectedsearch.active === true) {
+      API.changeStatusInactive({
+        id: search.id,
+        active: false,
+      }).then((res) => {
+        console.log(res.data);
+      });
+    } else {
+      console.log("inactive");
+    }
+
+    // } else {
+    //   API.changeStatusActive(search).then((res) => {
+    //     console.log(res.dta);
+    //   });
+    // }
   }
+
   return (
     <div className="home-container">
       <Button
         className="mark-search-inactive-button"
         onClick={() => {
-          markInactive(state.selectedsearch.id);
+          markInactive(state.selectedsearch);
         }}
       >
         Mark Search Inactive

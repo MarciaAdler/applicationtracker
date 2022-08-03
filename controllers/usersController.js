@@ -36,7 +36,6 @@ module.exports = {
       });
   },
   addApp: function (req, res) {
-    console.log(req.body);
     db.Application.create({
       companyName: req.body.companyName,
       role: req.body.role,
@@ -74,7 +73,6 @@ module.exports = {
       });
   },
   selectApp: function (req, res) {
-    console.log(req.params);
     db.Application.findOne({
       where: {
         id: req.params.id,
@@ -92,7 +90,6 @@ module.exports = {
       });
   },
   editApp: function (req, res) {
-    console.log("edit", req.body);
     db.Application.update(
       {
         companyName: req.body.companyName,
@@ -133,7 +130,6 @@ module.exports = {
       });
   },
   getSearchId: function (req, res) {
-    console.log(req.params);
     db.Search.findOne({
       where: {
         searchName: req.params.name,
@@ -156,7 +152,6 @@ module.exports = {
       });
   },
   getSearchApps: function (req, res) {
-    console.log(req.params);
     db.Application.findAll({
       where: {
         SearchId: req.params.id,
@@ -313,10 +308,11 @@ module.exports = {
         res.status(401).json(err);
       });
   },
-  changeStatus: function (req, res) {
+  changeStatusInactive: function (req, res) {
+    console.log("searchinactive", req.body);
     db.Search.update(
       {
-        status: req.body.status,
+        active: req.body.active,
       },
       { where: { id: req.body.id } }
     )
