@@ -168,6 +168,7 @@ a:hover {
 .home-container {
   height: 100%;
   margin-left: 10px;
+  text-align: center;
 }
 .home-filler {
   height: 100%;
@@ -250,6 +251,27 @@ a:hover {
 .analytics-card {
   margin: 10px;
 }
+.mark-search-inactive-button {
+  
+  background-color: #48639c;
+  border-color: #48639c;
+  color: white;
+  border-radius: 0.2em;
+  height: 30px;
+  font-size: 15px;
+  padding: 0;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-top:20px;
+  margin-bottom:20px;
+  
+}
+.mark-search-inactive-button:hover {
+  background-color: #97abb1;
+  border-color: #97abb1;
+  color: black;
+  
+}
 @media only screen and (min-width: 768) {
 }
 
@@ -295,6 +317,7 @@ a:hover {
   border-color: #97abb1;
   color: black;
 }
+
 @media only screen and (max-width: 721px) {
   .side-nav-container {
     float: none;
@@ -307,6 +330,7 @@ a:hover {
   .home-container {
     height: 100%;
     margin-left: 0px;
+    
   }
   #home-table {
     width: 100%;
@@ -393,4 +417,5 @@ a:hover {
   .signupform-col {
     margin-top: 1rem;
   }
+  
 }

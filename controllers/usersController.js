@@ -313,4 +313,16 @@ module.exports = {
         res.status(401).json(err);
       });
   },
+  changeStatus: function (req, res) {
+    db.Search.update(
+      {
+        status: req.body.status,
+      },
+      { where: { id: req.body.id } }
+    )
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
 };

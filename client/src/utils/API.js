@@ -73,4 +73,7 @@ export default {
   getComments: function (post) {
     return axios.get("/api/getcomments/" + post);
   },
+  changeStatus: function (search) {
+    return axios.put("/api/changestatus/" + search);
+  },
 };

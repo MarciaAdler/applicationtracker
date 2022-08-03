@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { ListGroup, Col, Row, Button } from "react-bootstrap";
 import API from "../utils/API";
-import { SET_APPS, SELECT_APP } from "../utils/actions";
+import { SET_APPS, SELECT_APP, SET_SEARCH } from "../utils/actions";
 import { useStoreContext } from "../utils/GlobalState";
 import image from "../images/applicationimg.jpeg";
 import { Redirect } from "react-router-dom";
+
 export default function SearchApps() {
   const [state, dispatch] = useStoreContext();
   const [redirect, setRedirect] = useState(false);
@@ -13,10 +14,14 @@ export default function SearchApps() {
       state.selectedsearch.id === 0 &&
       localStorage.getItem("selectedSearch")
     ) {
-      const currentSearchLs = JSON.parse(
+      const selectedSearchLs = JSON.parse(
         localStorage.getItem("selectedSearch")
       );
-      getSearchApps(currentSearchLs.id);
+      dispatch({
+        type: SET_SEARCH,
+        selectedsearch: selectedSearchLs,
+      });
+      getSearchApps(selectedSearchLs.id);
     } else {
       getSearchApps(state.selectedsearch.id);
     }
@@ -84,8 +89,22 @@ export default function SearchApps() {
       );
     }
   };
+  function markInactive(search) {
+    console.log(search);
+    // API.changeStatus(search).then((res) => {
+    //   console.log(res.data);
+    // });
+  }
   return (
     <div className="home-container">
+      <Button
+        className="mark-search-inactive-button"
+        onClick={() => {
+          markInactive(state.selectedsearch.id);
+        }}
+      >
+        Mark Search Inactive
+      </Button>
       <ListGroup id="home-table">
         {state.apps.length > 0 ? (
           state.apps.map((app) => {

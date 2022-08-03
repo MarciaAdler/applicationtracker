@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Button } from "react-bootstrap";
 import { SET_SEARCHES, SET_SEARCH } from "../utils/actions";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
@@ -44,6 +44,7 @@ export default function Search() {
       setRedirect(true);
     });
   }
+
   const renderRedirect = () => {
     if (state.selectedsearch && redirect) {
       return (
