@@ -309,7 +309,20 @@ module.exports = {
       });
   },
   changeStatusInactive: function (req, res) {
-    console.log("searchinactive", req.body);
+    console.log("inactive", req.body);
+    db.Search.update(
+      {
+        active: req.body.active,
+      },
+      { where: { id: req.body.id } }
+    )
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
+  changeStatusActive: function (req, res) {
+    console.log(req.body);
     db.Search.update(
       {
         active: req.body.active,

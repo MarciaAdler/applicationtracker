@@ -50,4 +50,5 @@ router.route("/api/getcomments/:id").get(usersController.getComments);
 router
   .route("/api/changestatusinactive")
   .put(usersController.changeStatusInactive);
+router.route("/api/changestatusactive").put(usersController.changeStatusActive);
 module.exports = router;

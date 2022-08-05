@@ -77,4 +77,8 @@ export default {
     console.log("updatesearch", search);
     return axios.put("/api/changestatusinactive", search);
   },
+  changeStatusActive: function (search) {
+    console.log("active", search);
+    return axios.put("/api/changestatusactive", search);
+  },
 };

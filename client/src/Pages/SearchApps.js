@@ -9,6 +9,7 @@ import { Redirect } from "react-router-dom";
 export default function SearchApps() {
   const [state, dispatch] = useStoreContext();
   const [redirect, setRedirect] = useState(false);
+  const [status, setStatus] = useState("Inactive");
   useEffect(() => {
     if (
       state.selectedsearch.id === 0 &&
@@ -89,24 +90,61 @@ export default function SearchApps() {
       );
     }
   };
-  function markInactive(search) {
+  function changeStatus(search) {
     console.log(search);
     if (state.selectedsearch.active === true) {
       API.changeStatusInactive({
         id: search.id,
         active: false,
       }).then((res) => {
-        console.log(res.data);
+        console.log("res", res.data);
+
+        dispatch({
+          type: SET_SEARCH,
+          selectedsearch: {
+            id: state.selectedsearch.id,
+            searchName: state.selectedsearch.searchName,
+            active: false,
+          },
+        });
+        let localStorageSelectedSearch = {
+          id: state.selectedsearch.id,
+          searchName: state.selectedsearch.searchName,
+          active: false,
+        };
+        window.localStorage.setItem(
+          "selectedSearch",
+          JSON.stringify(localStorageSelectedSearch)
+        );
+        setStatus("Active");
       });
     } else {
-      console.log("inactive");
-    }
+      console.log(search);
+      API.changeStatusActive({
+        id: state.selectedsearch.id,
 
-    // } else {
-    //   API.changeStatusActive(search).then((res) => {
-    //     console.log(res.dta);
-    //   });
-    // }
+        active: true,
+      }).then((res) => {
+        dispatch({
+          type: SET_SEARCH,
+          selectedsearch: {
+            id: state.selectedsearch.id,
+            searchName: state.selectedsearch.searchName,
+            active: true,
+          },
+        });
+        let localStorageSelectedSearch = {
+          id: state.selectedsearch.id,
+          searchName: state.selectedsearch.searchName,
+          active: true,
+        };
+        window.localStorage.setItem(
+          "selectedSearch",
+          JSON.stringify(localStorageSelectedSearch)
+        );
+        setStatus("Inactive");
+      });
+    }
   }
 
   return (
@@ -114,10 +152,10 @@ export default function SearchApps() {
       <Button
         className="mark-search-inactive-button"
         onClick={() => {
-          markInactive(state.selectedsearch);
+          changeStatus(state.selectedsearch);
         }}
       >
-        Mark Search Inactive
+        Mark Search {status}
       </Button>
       <ListGroup id="home-table">
         {state.apps.length > 0 ? (
