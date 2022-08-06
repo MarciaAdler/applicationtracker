@@ -7,8 +7,10 @@ import { Redirect } from "react-router-dom";
 export default function Search() {
   const [state, dispatch] = useStoreContext();
   const [redirect, setRedirect] = useState(false);
+  const [inactiveSearches, setInactiveSearches] = useState([]);
   useEffect(() => {
     getSearches(state.currentUser.id);
+    getInactiveSearches(state.currentUser.id);
   }, []);
   function getSearches(user) {
     API.getSearches(user)
@@ -17,6 +19,13 @@ export default function Search() {
           type: SET_SEARCHES,
           searches: res.data,
         });
+      })
+      .catch((err) => console.log(err));
+  }
+  function getInactiveSearches(user) {
+    API.getInactiveSearches(user)
+      .then((res) => {
+        setInactiveSearches(res.data);
       })
       .catch((err) => console.log(err));
   }
@@ -52,7 +61,7 @@ export default function Search() {
           push
           to={{
             pathname: "/searchapps/",
-            search: `?${state.selectedsearch.searchName}`,
+            search: `?${state.selectedsearch.id}`,
           }}
         />
       );
@@ -61,9 +70,28 @@ export default function Search() {
   return (
     <div className="resources-container">
       <h2 className="mt-2 text-center">My Searches</h2>
+      <h4 className="text-start mt-3 mb-3">Active</h4>
       <ListGroup className="resources-listgroup">
         {state.searches.length > 0
           ? state.searches.map((search) => {
+              return (
+                <ListGroup.Item
+                  className="search-item"
+                  key={search.id}
+                  onClick={() => {
+                    selectSearch(search.id);
+                  }}
+                >
+                  {search.searchName}
+                </ListGroup.Item>
+              );
+            })
+          : ""}
+      </ListGroup>
+      <h4 className="text-start mt-4 mb-3">Inactive</h4>
+      <ListGroup className="resources-listgroup">
+        {inactiveSearches.length > 0
+          ? inactiveSearches.map((search) => {
               return (
                 <ListGroup.Item
                   className="search-item"

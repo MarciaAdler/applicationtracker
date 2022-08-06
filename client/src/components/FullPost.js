@@ -18,7 +18,7 @@ export default function FullPost() {
     }
   }, []);
   return (
-    <div className="home-container">
+    <div className="home-container discussionboard">
       <div className="home-filler">
         <Container className="resources-container mt-3">
           <a href="/discussionboard" className="post-showmore">

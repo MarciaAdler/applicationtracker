@@ -23,7 +23,7 @@ export default function DiscussionBoard() {
       });
   }
   return (
-    <div className="home-container">
+    <div className="home-container discussionboard">
       <div className="home-filler">
         <h2 className="text-center mt-2">Discussion Board</h2>
         <h6 className="text-center">
