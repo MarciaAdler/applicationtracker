@@ -51,4 +51,5 @@ router
   .route("/api/changestatusinactive")
   .put(usersController.changeStatusInactive);
 router.route("/api/changestatusactive").put(usersController.changeStatusActive);
+router.route("api/getsearchstatus").get(usersController.getSearchStatus);
 module.exports = router;

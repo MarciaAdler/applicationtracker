@@ -334,4 +334,15 @@ module.exports = {
         res.status(401).json(err);
       });
   },
+  getSearchStatus: function (req, res) {
+    db.Search.findOne({
+      where: {
+        id: req.body.id,
+      },
+    })
+      .then((dbModel) => res.json(dbModel))
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  },
 };

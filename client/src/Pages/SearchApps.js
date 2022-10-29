@@ -9,7 +9,7 @@ import { Redirect } from "react-router-dom";
 export default function SearchApps() {
   const [state, dispatch] = useStoreContext();
   const [redirect, setRedirect] = useState(false);
-  const [status, setStatus] = useState("Inactive");
+  const [status, setStatus] = useState("");
   useEffect(() => {
     if (
       state.selectedsearch.id === 0 &&
@@ -23,10 +23,24 @@ export default function SearchApps() {
         selectedsearch: selectedSearchLs,
       });
       getSearchApps(selectedSearchLs.id);
+      getSearchStatus(selectedSearchLs);
     } else {
       getSearchApps(state.selectedsearch.id);
+      getSearchStatus(state.selectedsearch);
     }
   }, []);
+
+  function getSearchStatus(search) {
+    API.getSearchStatus(search)
+      .then((res) => {
+        if (search.active === true) {
+          setStatus("Inactive");
+        } else {
+          setStatus("Active");
+        }
+      })
+      .catch((err) => console.log(err));
+  }
 
   function getSearchApps(search) {
     API.getSearchApps(search)
@@ -92,7 +106,7 @@ export default function SearchApps() {
   };
   function changeStatus(search) {
     console.log(search);
-    if (state.selectedsearch.active === true) {
+    if (search.active === true) {
       API.changeStatusInactive({
         id: search.id,
         active: false,

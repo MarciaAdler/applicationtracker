@@ -81,4 +81,8 @@ export default {
     console.log("active", search);
     return axios.put("/api/changestatusactive", search);
   },
+  getSearchStatus: function (search) {
+    console.log(search);
+    return axios.get("/api/getsearchstatus", search);
+  },
 };
