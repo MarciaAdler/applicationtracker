@@ -17,6 +17,9 @@ export default function SideNavQuotes() {
       <p className="side-nav-quotes-text">
         "Don't count yourself out before you even apply"
       </p>
+      <p className="side-nav-quotes-text">
+        "If you don't ask, the answer is always no"
+      </p>
     </div>
   );
 }
